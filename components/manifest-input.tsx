@@ -1,6 +1,6 @@
 "use client";
 
-import { useDeferredValue, useState, useTransition } from "react";
+import { useDeferredValue, useEffect, useState, useTransition } from "react";
 import ReadingPanel from "@/components/reading-panel";
 import ScoreCards from "@/components/score-cards";
 import ShareCard from "@/components/share-card";
@@ -13,6 +13,11 @@ type ApiErrorState = {
   error: string;
   detail?: string;
   title?: string;
+};
+
+type ToastState = {
+  kind: "success" | "error";
+  message: string;
 };
 
 function describeDraft(text: string) {
@@ -57,14 +62,28 @@ export default function ManifestInput() {
   const deferredManifestText = useDeferredValue(manifestText);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<ApiErrorState | null>(null);
-  const [copyState, setCopyState] = useState<string | null>(null);
+  const [toast, setToast] = useState<ToastState | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const draftDescription = describeDraft(deferredManifestText);
 
+  useEffect(() => {
+    if (!toast) {
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => {
+      setToast(null);
+    }, 2200);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [toast]);
+
   async function handleAnalyze() {
-    setCopyState(null);
+    setToast(null);
     setIsSubmitting(true);
 
     try {
@@ -128,8 +147,18 @@ export default function ManifestInput() {
   }
 
   async function copy(text: string, label: string) {
-    await navigator.clipboard.writeText(text);
-    setCopyState(label);
+    try {
+      await navigator.clipboard.writeText(text);
+      setToast({
+        kind: "success",
+        message: `Copied ${label} to the clipboard.`,
+      });
+    } catch {
+      setToast({
+        kind: "error",
+        message: `Clipboard access failed while copying ${label}.`,
+      });
+    }
   }
 
   return (
@@ -165,7 +194,7 @@ export default function ManifestInput() {
                   type="button"
                   onClick={() => {
                     setManifestText(sample.manifest);
-                    setCopyState(null);
+                    setToast(null);
                   }}
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
@@ -284,15 +313,23 @@ export default function ManifestInput() {
             </div>
 
             <ShareCard result={result} />
-
-            {copyState ? (
-              <p className="rounded-2xl border border-[var(--success)]/20 bg-[var(--success-soft)] px-4 py-3 text-sm text-[var(--success)]">
-                Copied {copyState} to the clipboard.
-              </p>
-            ) : null}
           </div>
         ) : null}
       </div>
+
+      {toast ? (
+        <div className="pointer-events-none fixed inset-x-4 bottom-4 z-50 sm:inset-x-auto sm:right-6">
+          <p
+            className={`rounded-2xl border px-4 py-3 text-sm shadow-[0_18px_45px_rgba(15,23,42,0.18)] backdrop-blur ${
+              toast.kind === "success"
+                ? "border-[var(--success)]/20 bg-[var(--success-soft)] text-[var(--success)]"
+                : "border-[var(--danger)]/20 bg-[var(--danger-soft)] text-[var(--danger)]"
+            }`}
+          >
+            {toast.message}
+          </p>
+        </div>
+      ) : null}
     </section>
   );
 }
