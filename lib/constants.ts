@@ -1,5 +1,6 @@
 export const APP_MODEL = "gemini-3.1-flash-lite-preview";
 export const FALLBACK_MODEL_LABEL = "local-contingency-copy";
+export const PRODUCTION_SAFE_MODEL_LABEL = "budget-committee-safe-mode";
 export const APP_SUBTITLE = "Boardroom-certified manifest divination";
 
 export const SAMPLE_MANIFESTS = [

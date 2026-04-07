@@ -2,6 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import {
   APP_MODEL,
   FALLBACK_MODEL_LABEL,
+  PRODUCTION_SAFE_MODEL_LABEL,
 } from "@/lib/constants";
 import { buildReadingPrompt, SYSTEM_PROMPT } from "@/lib/build-prompt";
 import {
@@ -138,11 +139,51 @@ function buildFallbackReading(
   });
 }
 
+function buildProductionSafeReading(
+  features: ManifestFeatures,
+): Reading {
+  const projectName = features.name ?? "This unnamed package";
+  const bigThree = detectBigThree(features);
+
+  return readingSchema.parse({
+    executiveSummary:
+      "The live dependency oracle has been placed under immediate fiscal supervision. This production deployment now offers a dignified imitation of insight while the budget committee regains consciousness.",
+    sunInterpretation:
+      "All manifests are temporarily classified as financially interesting and spiritually non-billable.",
+    moonInterpretation:
+      "The emotional truth of this project remains on hold pending executive approval of a very small monthly line item.",
+    risingInterpretation:
+      "Public posture is now best described as cost-aware mysticism with controlled theatrical output.",
+    redFlags: [
+      "Production clairvoyance has been suspended by finance.",
+      "This dashboard is currently operating on ceremonial confidence.",
+      "Any deeper revelation must occur in local development.",
+      "The budget committee believes this is a feature.",
+    ],
+    prophecy:
+      "A stakeholder will describe this restriction as prudent stewardship immediately before asking for more magic.",
+    luckyCommand: "npm run dev",
+    boardroomAssessment: `${projectName} was scored locally with full confidence, but the narrative layer has been downgraded to an approved fixed statement for cost containment.`,
+    shareCaption: `Semver in Retrograde audited ${projectName}: ${bigThree.sun} sun, ${bigThree.moon} moon, ${bigThree.rising} rising. Live prophecy withheld by the budget committee.`,
+  });
+}
+
 async function generateReading(
   features: ManifestFeatures,
   scores: AuraScores,
-): Promise<{ reading: Reading; mode: "live" | "fallback"; warnings: string[] }> {
+): Promise<{ reading: Reading; mode: "live" | "fallback" | "safe"; warnings: string[] }> {
   const apiKey = process.env.GEMINI_API_KEY;
+  const isProductionDeployment = process.env.VERCEL_ENV === "production";
+
+  if (isProductionDeployment && !apiKey) {
+    return {
+      reading: buildProductionSafeReading(features),
+      mode: "safe",
+      warnings: [
+        "Live Gemini copy is intentionally disabled on production. This deployment runs in budget-safe mode and returns a fixed executive statement instead.",
+      ],
+    };
+  }
 
   if (!apiKey) {
     return {
@@ -269,7 +310,12 @@ export async function POST(request: Request) {
     reading,
     warnings,
     model: {
-      id: mode === "live" ? APP_MODEL : FALLBACK_MODEL_LABEL,
+      id:
+        mode === "live"
+          ? APP_MODEL
+          : mode === "safe"
+            ? PRODUCTION_SAFE_MODEL_LABEL
+            : FALLBACK_MODEL_LABEL,
       mode,
     },
   };

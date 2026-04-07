@@ -260,7 +260,9 @@ export default function ManifestInput() {
                 <p className="mt-1 text-sm leading-6 text-[var(--ink-soft)]">
                   {result.model.mode === "live"
                     ? `Narrative copy generated with ${result.model.id}.`
-                    : `Narrative copy generated with ${result.model.id}. Configure GEMINI_API_KEY to switch to live Gemini output.`}
+                    : result.model.mode === "safe"
+                      ? `Production is running with ${result.model.id}. Live Gemini output is intentionally disabled for cost control.`
+                      : `Narrative copy generated with ${result.model.id}. Configure GEMINI_API_KEY to switch to live Gemini output.`}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">

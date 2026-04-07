@@ -72,7 +72,7 @@ export const analysisResultSchema = z.object({
   warnings: z.array(z.string()),
   model: z.object({
     id: z.string(),
-    mode: z.enum(["live", "fallback"]),
+    mode: z.enum(["live", "fallback", "safe"]),
   }),
 });
 
