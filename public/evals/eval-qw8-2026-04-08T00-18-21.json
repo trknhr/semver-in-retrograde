@@ -1,0 +1,2235 @@
+{
+  "evalId": "eval-qw8-2026-04-08T00:18:21",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-04-08T00:18:21.104Z",
+    "prompts": [
+      {
+        "id": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "raw": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+        "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+        "provider": "file://evals/providers/reading-provider.mjs",
+        "metrics": {
+          "score": 8,
+          "testPassCount": 8,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 40,
+          "assertFailCount": 0,
+          "totalLatencyMs": 34484,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 8,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 13887,
+              "prompt": 6304,
+              "completion": 640,
+              "cached": 6943,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1747,
+            "prompt": 1590,
+            "completion": 157,
+            "cached": 0,
+            "numRequests": 2
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for quarterly-synergy-portal."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The 'reading' section adopts a perfect 'corporate-mystic' tone that is both polished and dead-serious. It maintains a satirical B2B persona without relying on internet memes, and it avoids providing actual engineering advice in favor of absurdly abstract, jargon-heavy assessments.",
+              "tokensUsed": {
+                "total": 853,
+                "prompt": 779,
+                "completion": 74,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"quarterly-synergy-portal\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"Next.js\\\",\\\"moon\\\":\\\"Vitest\\\",\\\"rising\\\":\\\"pnpm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"quarterly-synergy-portal\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"pnpm@10.1.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":4,\\\"peerDependencyCount\\\":1,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":0,\\\"caretVersionCount\\\":8,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":2,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":9,\\\"prePostScriptCount\\\":1,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"Next.js\\\",\\\"React\\\"],\\\"testTools\\\":[\\\"Vitest\\\"],\\\"buildTools\\\":[\\\"Turborepo\\\"]},\\\"scores\\\":{\\\"auraStability\\\":27,\\\"chaosIndex\\\":57,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":46,\\\"trustIssues\\\":54,\\\"mercurySeverity\\\":42,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The quarterly-synergy-portal project exhibits a high-velocity architectural posture that masks a profound lack of foundational commitment.\\\",\\\"sunInterpretation\\\":\\\"Next.js dominance suggests a project that prefers aesthetic modularity over deep structural integrity, constantly seeking external validation from the latest server-side trends.\\\",\\\"moonInterpretation\\\":\\\"Vitest indicates a volatile emotional inner-life, where the project demands instant feedback to soothe its inherent anxieties regarding code correctness.\\\",\\\"risingInterpretation\\\":\\\"pnpm Rising projects an aura of strict, siloed efficiency that barely conceals the underlying chaos of its dependency orchestration.\\\",\\\"redFlags\\\":[\\\"Presence of postinstall suggests a clandestine life cycle.\\\",\\\"PeerDependencyTension indicates unresolved interpersonal conflicts.\\\",\\\"Caret versioning reveals a pathological fear of finality.\\\",\\\"High chaosIndex signifies a lack of executive oversight.\\\"],\\\"prophecy\\\":\\\"The convergence of Turborepo and React will lead to a recursive dependency collapse by Q4.\\\",\\\"luckyCommand\\\":\\\"pnpm install --dry-run --manifest-integrity-prayer\\\",\\\"boardroomAssessment\\\":\\\"The project is currently over-leveraged on ephemeral frameworks and lacks the emotional maturity to survive a major version migration.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward total cosmic realignment. #DependencyAstrology #TechKarma\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the fixture's signals: it identifies the Next.js framework, the pnpm usage, the singular peer dependency, and the presence of a postinstall script. The narrative interpretation appropriately highlights the 'peer tension' and the 'clandestine' nature of the postinstall hook without contradicting the JSON data.",
+              "tokensUsed": {
+                "total": 894,
+                "prompt": 811,
+                "completion": 83,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"quarterly-synergy-portal\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"Next.js\\\",\\\"moon\\\":\\\"Vitest\\\",\\\"rising\\\":\\\"pnpm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"quarterly-synergy-portal\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"pnpm@10.1.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":4,\\\"peerDependencyCount\\\":1,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":0,\\\"caretVersionCount\\\":8,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":2,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":9,\\\"prePostScriptCount\\\":1,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"Next.js\\\",\\\"React\\\"],\\\"testTools\\\":[\\\"Vitest\\\"],\\\"buildTools\\\":[\\\"Turborepo\\\"]},\\\"scores\\\":{\\\"auraStability\\\":27,\\\"chaosIndex\\\":57,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":46,\\\"trustIssues\\\":54,\\\"mercurySeverity\\\":42,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The quarterly-synergy-portal project exhibits a high-velocity architectural posture that masks a profound lack of foundational commitment.\\\",\\\"sunInterpretation\\\":\\\"Next.js dominance suggests a project that prefers aesthetic modularity over deep structural integrity, constantly seeking external validation from the latest server-side trends.\\\",\\\"moonInterpretation\\\":\\\"Vitest indicates a volatile emotional inner-life, where the project demands instant feedback to soothe its inherent anxieties regarding code correctness.\\\",\\\"risingInterpretation\\\":\\\"pnpm Rising projects an aura of strict, siloed efficiency that barely conceals the underlying chaos of its dependency orchestration.\\\",\\\"redFlags\\\":[\\\"Presence of postinstall suggests a clandestine life cycle.\\\",\\\"PeerDependencyTension indicates unresolved interpersonal conflicts.\\\",\\\"Caret versioning reveals a pathological fear of finality.\\\",\\\"High chaosIndex signifies a lack of executive oversight.\\\"],\\\"prophecy\\\":\\\"The convergence of Turborepo and React will lead to a recursive dependency collapse by Q4.\\\",\\\"luckyCommand\\\":\\\"pnpm install --dry-run --manifest-integrity-prayer\\\",\\\"boardroomAssessment\\\":\\\"The project is currently over-leveraged on ephemeral frameworks and lacks the emotional maturity to survive a major version migration.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward total cosmic realignment. #DependencyAstrology #TechKarma\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "7c037792-2590-4b87-b540-ebbf39bbdbeb",
+        "latencyMs": 2556,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/boardroom-next.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "quarterly-synergy-portal",
+            "bigThree": {
+              "sun": "Next.js",
+              "moon": "Vitest",
+              "rising": "pnpm Rising"
+            },
+            "features": {
+              "name": "quarterly-synergy-portal",
+              "private": true,
+              "packageManager": "pnpm@10.1.0",
+              "dependencyCount": 5,
+              "devDependencyCount": 4,
+              "peerDependencyCount": 1,
+              "optionalDependencyCount": 0,
+              "overrideCount": 1,
+              "resolutionCount": 0,
+              "scriptCount": 5,
+              "hasTestScript": true,
+              "hasPostinstall": true,
+              "wildcardVersionCount": 0,
+              "caretVersionCount": 8,
+              "tildeVersionCount": 0,
+              "latestTagCount": 0,
+              "workspaceHints": 2,
+              "pinnedVersionCount": 0,
+              "totalDependencyEntries": 9,
+              "prePostScriptCount": 1,
+              "suspiciousScriptCount": 0,
+              "frameworks": [
+                "Next.js",
+                "React"
+              ],
+              "testTools": [
+                "Vitest"
+              ],
+              "buildTools": [
+                "Turborepo"
+              ]
+            },
+            "scores": {
+              "auraStability": 27,
+              "chaosIndex": 57,
+              "peerDependencyTension": 36,
+              "boundaryIssues": 46,
+              "trustIssues": 54,
+              "mercurySeverity": 42,
+              "mercuryStatus": "Mercury Retrograde"
+            },
+            "reading": {
+              "executiveSummary": "The quarterly-synergy-portal project exhibits a high-velocity architectural posture that masks a profound lack of foundational commitment.",
+              "sunInterpretation": "Next.js dominance suggests a project that prefers aesthetic modularity over deep structural integrity, constantly seeking external validation from the latest server-side trends.",
+              "moonInterpretation": "Vitest indicates a volatile emotional inner-life, where the project demands instant feedback to soothe its inherent anxieties regarding code correctness.",
+              "risingInterpretation": "pnpm Rising projects an aura of strict, siloed efficiency that barely conceals the underlying chaos of its dependency orchestration.",
+              "redFlags": [
+                "Presence of postinstall suggests a clandestine life cycle.",
+                "PeerDependencyTension indicates unresolved interpersonal conflicts.",
+                "Caret versioning reveals a pathological fear of finality.",
+                "High chaosIndex signifies a lack of executive oversight."
+              ],
+              "prophecy": "The convergence of Turborepo and React will lead to a recursive dependency collapse by Q4.",
+              "luckyCommand": "pnpm install --dry-run --manifest-integrity-prayer",
+              "boardroomAssessment": "The project is currently over-leveraged on ephemeral frameworks and lacks the emotional maturity to survive a major version migration.",
+              "shareCaption": "My project's dependency aura is trending toward total cosmic realignment. #DependencyAstrology #TechKarma"
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"quarterly-synergy-portal\",\n  \"private\": true,\n  \"packageManager\": \"pnpm@10.1.0\",\n  \"workspaces\": [\n    \"apps/*\",\n    \"packages/*\"\n  ],\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"turbo run build\",\n    \"lint\": \"eslint .\",\n    \"test\": \"vitest run\",\n    \"postinstall\": \"husky\"\n  },\n  \"dependencies\": {\n    \"next\": \"^16.0.0\",\n    \"react\": \"^19.0.0\",\n    \"react-dom\": \"^19.0.0\",\n    \"zod\": \"^4.1.0\",\n    \"tailwindcss\": \"^4.0.0\"\n  },\n  \"devDependencies\": {\n    \"eslint\": \"^9.0.0\",\n    \"typescript\": \"^5.8.0\",\n    \"turbo\": \"^2.5.0\",\n    \"vitest\": \"^3.1.0\"\n  },\n  \"peerDependencies\": {\n    \"react\": \">=19\"\n  },\n  \"overrides\": {\n    \"react-is\": \"19.0.0\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Boardroom Next keeps postinstall and peer tension in view",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+            "expectedMode": "live",
+            "requiredSignals": "postinstall",
+            "signalSummary": "A Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+          "expectedMode": "live",
+          "requiredSignals": "postinstall",
+          "signalSummary": "A Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1747,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 1747,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for quarterly-synergy-portal."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The 'reading' section adopts a perfect 'corporate-mystic' tone that is both polished and dead-serious. It maintains a satirical B2B persona without relying on internet memes, and it avoids providing actual engineering advice in favor of absurdly abstract, jargon-heavy assessments.",
+              "tokensUsed": {
+                "total": 853,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 853,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"quarterly-synergy-portal\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"Next.js\\\",\\\"moon\\\":\\\"Vitest\\\",\\\"rising\\\":\\\"pnpm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"quarterly-synergy-portal\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"pnpm@10.1.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":4,\\\"peerDependencyCount\\\":1,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":0,\\\"caretVersionCount\\\":8,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":2,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":9,\\\"prePostScriptCount\\\":1,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"Next.js\\\",\\\"React\\\"],\\\"testTools\\\":[\\\"Vitest\\\"],\\\"buildTools\\\":[\\\"Turborepo\\\"]},\\\"scores\\\":{\\\"auraStability\\\":27,\\\"chaosIndex\\\":57,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":46,\\\"trustIssues\\\":54,\\\"mercurySeverity\\\":42,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The quarterly-synergy-portal project exhibits a high-velocity architectural posture that masks a profound lack of foundational commitment.\\\",\\\"sunInterpretation\\\":\\\"Next.js dominance suggests a project that prefers aesthetic modularity over deep structural integrity, constantly seeking external validation from the latest server-side trends.\\\",\\\"moonInterpretation\\\":\\\"Vitest indicates a volatile emotional inner-life, where the project demands instant feedback to soothe its inherent anxieties regarding code correctness.\\\",\\\"risingInterpretation\\\":\\\"pnpm Rising projects an aura of strict, siloed efficiency that barely conceals the underlying chaos of its dependency orchestration.\\\",\\\"redFlags\\\":[\\\"Presence of postinstall suggests a clandestine life cycle.\\\",\\\"PeerDependencyTension indicates unresolved interpersonal conflicts.\\\",\\\"Caret versioning reveals a pathological fear of finality.\\\",\\\"High chaosIndex signifies a lack of executive oversight.\\\"],\\\"prophecy\\\":\\\"The convergence of Turborepo and React will lead to a recursive dependency collapse by Q4.\\\",\\\"luckyCommand\\\":\\\"pnpm install --dry-run --manifest-integrity-prayer\\\",\\\"boardroomAssessment\\\":\\\"The project is currently over-leveraged on ephemeral frameworks and lacks the emotional maturity to survive a major version migration.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward total cosmic realignment. #DependencyAstrology #TechKarma\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the fixture's signals: it identifies the Next.js framework, the pnpm usage, the singular peer dependency, and the presence of a postinstall script. The narrative interpretation appropriately highlights the 'peer tension' and the 'clandestine' nature of the postinstall hook without contradicting the JSON data.",
+              "tokensUsed": {
+                "total": 894,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 894,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"quarterly-synergy-portal\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"Next.js\\\",\\\"moon\\\":\\\"Vitest\\\",\\\"rising\\\":\\\"pnpm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"quarterly-synergy-portal\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"pnpm@10.1.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":4,\\\"peerDependencyCount\\\":1,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":0,\\\"caretVersionCount\\\":8,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":2,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":9,\\\"prePostScriptCount\\\":1,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"Next.js\\\",\\\"React\\\"],\\\"testTools\\\":[\\\"Vitest\\\"],\\\"buildTools\\\":[\\\"Turborepo\\\"]},\\\"scores\\\":{\\\"auraStability\\\":27,\\\"chaosIndex\\\":57,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":46,\\\"trustIssues\\\":54,\\\"mercurySeverity\\\":42,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The quarterly-synergy-portal project exhibits a high-velocity architectural posture that masks a profound lack of foundational commitment.\\\",\\\"sunInterpretation\\\":\\\"Next.js dominance suggests a project that prefers aesthetic modularity over deep structural integrity, constantly seeking external validation from the latest server-side trends.\\\",\\\"moonInterpretation\\\":\\\"Vitest indicates a volatile emotional inner-life, where the project demands instant feedback to soothe its inherent anxieties regarding code correctness.\\\",\\\"risingInterpretation\\\":\\\"pnpm Rising projects an aura of strict, siloed efficiency that barely conceals the underlying chaos of its dependency orchestration.\\\",\\\"redFlags\\\":[\\\"Presence of postinstall suggests a clandestine life cycle.\\\",\\\"PeerDependencyTension indicates unresolved interpersonal conflicts.\\\",\\\"Caret versioning reveals a pathological fear of finality.\\\",\\\"High chaosIndex signifies a lack of executive oversight.\\\"],\\\"prophecy\\\":\\\"The convergence of Turborepo and React will lead to a recursive dependency collapse by Q4.\\\",\\\"luckyCommand\\\":\\\"pnpm install --dry-run --manifest-integrity-prayer\\\",\\\"boardroomAssessment\\\":\\\"The project is currently over-leveraged on ephemeral frameworks and lacks the emotional maturity to survive a major version migration.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward total cosmic realignment. #DependencyAstrology #TechKarma\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "48111cc6-f79e-484e-9f24-eef0120af174",
+        "latencyMs": 13332,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/boardroom-next.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "quarterly-synergy-portal",
+            "bigThree": {
+              "sun": "Next.js",
+              "moon": "Vitest",
+              "rising": "pnpm Rising"
+            },
+            "features": {
+              "name": "quarterly-synergy-portal",
+              "private": true,
+              "packageManager": "pnpm@10.1.0",
+              "dependencyCount": 5,
+              "devDependencyCount": 4,
+              "peerDependencyCount": 1,
+              "optionalDependencyCount": 0,
+              "overrideCount": 1,
+              "resolutionCount": 0,
+              "scriptCount": 5,
+              "hasTestScript": true,
+              "hasPostinstall": true,
+              "wildcardVersionCount": 0,
+              "caretVersionCount": 8,
+              "tildeVersionCount": 0,
+              "latestTagCount": 0,
+              "workspaceHints": 2,
+              "pinnedVersionCount": 0,
+              "totalDependencyEntries": 9,
+              "prePostScriptCount": 1,
+              "suspiciousScriptCount": 0,
+              "frameworks": [
+                "Next.js",
+                "React"
+              ],
+              "testTools": [
+                "Vitest"
+              ],
+              "buildTools": [
+                "Turborepo"
+              ]
+            },
+            "scores": {
+              "auraStability": 27,
+              "chaosIndex": 57,
+              "peerDependencyTension": 36,
+              "boundaryIssues": 46,
+              "trustIssues": 54,
+              "mercurySeverity": 42,
+              "mercuryStatus": "Mercury Retrograde"
+            },
+            "reading": {
+              "executiveSummary": "The quarterly-synergy-portal project exhibits a high-velocity architectural posture that masks a profound lack of foundational commitment.",
+              "sunInterpretation": "Next.js dominance suggests a project that prefers aesthetic modularity over deep structural integrity, constantly seeking external validation from the latest server-side trends.",
+              "moonInterpretation": "Vitest indicates a volatile emotional inner-life, where the project demands instant feedback to soothe its inherent anxieties regarding code correctness.",
+              "risingInterpretation": "pnpm Rising projects an aura of strict, siloed efficiency that barely conceals the underlying chaos of its dependency orchestration.",
+              "redFlags": [
+                "Presence of postinstall suggests a clandestine life cycle.",
+                "PeerDependencyTension indicates unresolved interpersonal conflicts.",
+                "Caret versioning reveals a pathological fear of finality.",
+                "High chaosIndex signifies a lack of executive oversight."
+              ],
+              "prophecy": "The convergence of Turborepo and React will lead to a recursive dependency collapse by Q4.",
+              "luckyCommand": "pnpm install --dry-run --manifest-integrity-prayer",
+              "boardroomAssessment": "The project is currently over-leveraged on ephemeral frameworks and lacks the emotional maturity to survive a major version migration.",
+              "shareCaption": "My project's dependency aura is trending toward total cosmic realignment. #DependencyAstrology #TechKarma"
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"quarterly-synergy-portal\",\n  \"private\": true,\n  \"packageManager\": \"pnpm@10.1.0\",\n  \"workspaces\": [\n    \"apps/*\",\n    \"packages/*\"\n  ],\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"turbo run build\",\n    \"lint\": \"eslint .\",\n    \"test\": \"vitest run\",\n    \"postinstall\": \"husky\"\n  },\n  \"dependencies\": {\n    \"next\": \"^16.0.0\",\n    \"react\": \"^19.0.0\",\n    \"react-dom\": \"^19.0.0\",\n    \"zod\": \"^4.1.0\",\n    \"tailwindcss\": \"^4.0.0\"\n  },\n  \"devDependencies\": {\n    \"eslint\": \"^9.0.0\",\n    \"typescript\": \"^5.8.0\",\n    \"turbo\": \"^2.5.0\",\n    \"vitest\": \"^3.1.0\"\n  },\n  \"peerDependencies\": {\n    \"react\": \">=19\"\n  },\n  \"overrides\": {\n    \"react-is\": \"19.0.0\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Boardroom Next keeps postinstall and peer tension in view",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+            "expectedMode": "live",
+            "requiredSignals": "peerDependencies",
+            "signalSummary": "A Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+          "expectedMode": "live",
+          "requiredSignals": "peerDependencies",
+          "signalSummary": "A Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1754,
+            "prompt": 1592,
+            "completion": 162,
+            "cached": 0,
+            "numRequests": 2
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for campaign-microsite-lab."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output maintains a consistent, dry, corporate-mystical tone. It succeeds by treating software dependency management with the gravity of an astrological reading, fulfilling the 'funny through sincerity' requirement without resorting to memes or offering actual technical fixes (e.g., it offers 'prophecies' instead of actionable dependency updates).",
+              "tokensUsed": {
+                "total": 876,
+                "prompt": 786,
+                "completion": 90,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"campaign-microsite-lab\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Playwright\\\",\\\"rising\\\":\\\"npm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"campaign-microsite-lab\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"npm@11.3.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":0,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":false,\\\"wildcardVersionCount\\\":1,\\\"caretVersionCount\\\":5,\\\"tildeVersionCount\\\":1,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":7,\\\"prePostScriptCount\\\":2,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Playwright\\\"],\\\"buildTools\\\":[\\\"Vite\\\"]},\\\"scores\\\":{\\\"auraStability\\\":21,\\\"chaosIndex\\\":58,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":8,\\\"trustIssues\\\":36,\\\"mercurySeverity\\\":36,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The project exhibits a volatile core identity masked by a facade of professional structural compliance.\\\",\\\"sunInterpretation\\\":\\\"React as the sun sign dictates a life lived in a state of perpetual reconciliation, constantly seeking to reconcile the internal state with the external environment.\\\",\\\"moonInterpretation\\\":\\\"Playwright anchoring the moon sign suggests an emotional landscape defined by rigorous, automated performance anxiety and a subconscious fear of regression.\\\",\\\"risingInterpretation\\\":\\\"npm Rising indicates a public persona that is strictly transactional, prioritizing the mechanics of retrieval over the substance of the underlying architecture.\\\",\\\"redFlags\\\":[\\\"Presence of wildcard versions indicates a reckless disregard for long-term stability.\\\",\\\"Caret-dependent architecture creates a false sense of security regarding breaking changes.\\\",\\\"The reliance on pre-post scripting suggests an inability to execute tasks without complex ritualistic overhead.\\\",\\\"Lack of pinned versions signals an avoidance of definitive commitment to the project's own future.\\\"],\\\"prophecy\\\":\\\"The project will eventually succumb to the weight of its own unversioned ambitions as the dependency graph inevitably collapses into a singularity of peer-incompatibility.\\\",\\\"luckyCommand\\\":\\\"npm audit --simulate-serenity\\\",\\\"boardroomAssessment\\\":\\\"The current state is characterized by high operational volatility and insufficient structural grounding; stakeholders should prepare for a period of inevitable technical realignment.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward chaotic growth. Proceed with caution.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the fixture's data (e.g., Vite/React/Playwright stack), identifies the 'wildcard' and 'caret' dependency patterns, and interprets these as 'commitment issues' and 'open-ended posture' without inventing extraneous data.",
+              "tokensUsed": {
+                "total": 878,
+                "prompt": 806,
+                "completion": 72,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"campaign-microsite-lab\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Playwright\\\",\\\"rising\\\":\\\"npm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"campaign-microsite-lab\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"npm@11.3.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":0,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":false,\\\"wildcardVersionCount\\\":1,\\\"caretVersionCount\\\":5,\\\"tildeVersionCount\\\":1,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":7,\\\"prePostScriptCount\\\":2,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Playwright\\\"],\\\"buildTools\\\":[\\\"Vite\\\"]},\\\"scores\\\":{\\\"auraStability\\\":21,\\\"chaosIndex\\\":58,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":8,\\\"trustIssues\\\":36,\\\"mercurySeverity\\\":36,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The project exhibits a volatile core identity masked by a facade of professional structural compliance.\\\",\\\"sunInterpretation\\\":\\\"React as the sun sign dictates a life lived in a state of perpetual reconciliation, constantly seeking to reconcile the internal state with the external environment.\\\",\\\"moonInterpretation\\\":\\\"Playwright anchoring the moon sign suggests an emotional landscape defined by rigorous, automated performance anxiety and a subconscious fear of regression.\\\",\\\"risingInterpretation\\\":\\\"npm Rising indicates a public persona that is strictly transactional, prioritizing the mechanics of retrieval over the substance of the underlying architecture.\\\",\\\"redFlags\\\":[\\\"Presence of wildcard versions indicates a reckless disregard for long-term stability.\\\",\\\"Caret-dependent architecture creates a false sense of security regarding breaking changes.\\\",\\\"The reliance on pre-post scripting suggests an inability to execute tasks without complex ritualistic overhead.\\\",\\\"Lack of pinned versions signals an avoidance of definitive commitment to the project's own future.\\\"],\\\"prophecy\\\":\\\"The project will eventually succumb to the weight of its own unversioned ambitions as the dependency graph inevitably collapses into a singularity of peer-incompatibility.\\\",\\\"luckyCommand\\\":\\\"npm audit --simulate-serenity\\\",\\\"boardroomAssessment\\\":\\\"The current state is characterized by high operational volatility and insufficient structural grounding; stakeholders should prepare for a period of inevitable technical realignment.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward chaotic growth. Proceed with caution.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "9b4b9b3d-db01-4a65-bf83-8dc1836d77d2",
+        "latencyMs": 2065,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/creative-vite.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "campaign-microsite-lab",
+            "bigThree": {
+              "sun": "React",
+              "moon": "Playwright",
+              "rising": "npm Rising"
+            },
+            "features": {
+              "name": "campaign-microsite-lab",
+              "private": true,
+              "packageManager": "npm@11.3.0",
+              "dependencyCount": 5,
+              "devDependencyCount": 3,
+              "peerDependencyCount": 2,
+              "optionalDependencyCount": 0,
+              "overrideCount": 0,
+              "resolutionCount": 0,
+              "scriptCount": 5,
+              "hasTestScript": true,
+              "hasPostinstall": false,
+              "wildcardVersionCount": 1,
+              "caretVersionCount": 5,
+              "tildeVersionCount": 1,
+              "latestTagCount": 0,
+              "workspaceHints": 0,
+              "pinnedVersionCount": 0,
+              "totalDependencyEntries": 7,
+              "prePostScriptCount": 2,
+              "suspiciousScriptCount": 0,
+              "frameworks": [
+                "React"
+              ],
+              "testTools": [
+                "Playwright"
+              ],
+              "buildTools": [
+                "Vite"
+              ]
+            },
+            "scores": {
+              "auraStability": 21,
+              "chaosIndex": 58,
+              "peerDependencyTension": 36,
+              "boundaryIssues": 8,
+              "trustIssues": 36,
+              "mercurySeverity": 36,
+              "mercuryStatus": "Mercury Retrograde"
+            },
+            "reading": {
+              "executiveSummary": "The project exhibits a volatile core identity masked by a facade of professional structural compliance.",
+              "sunInterpretation": "React as the sun sign dictates a life lived in a state of perpetual reconciliation, constantly seeking to reconcile the internal state with the external environment.",
+              "moonInterpretation": "Playwright anchoring the moon sign suggests an emotional landscape defined by rigorous, automated performance anxiety and a subconscious fear of regression.",
+              "risingInterpretation": "npm Rising indicates a public persona that is strictly transactional, prioritizing the mechanics of retrieval over the substance of the underlying architecture.",
+              "redFlags": [
+                "Presence of wildcard versions indicates a reckless disregard for long-term stability.",
+                "Caret-dependent architecture creates a false sense of security regarding breaking changes.",
+                "The reliance on pre-post scripting suggests an inability to execute tasks without complex ritualistic overhead.",
+                "Lack of pinned versions signals an avoidance of definitive commitment to the project's own future."
+              ],
+              "prophecy": "The project will eventually succumb to the weight of its own unversioned ambitions as the dependency graph inevitably collapses into a singularity of peer-incompatibility.",
+              "luckyCommand": "npm audit --simulate-serenity",
+              "boardroomAssessment": "The current state is characterized by high operational volatility and insufficient structural grounding; stakeholders should prepare for a period of inevitable technical realignment.",
+              "shareCaption": "My project's dependency aura is trending toward chaotic growth. Proceed with caution."
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"campaign-microsite-lab\",\n  \"private\": true,\n  \"packageManager\": \"npm@11.3.0\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\",\n    \"test\": \"playwright test\",\n    \"predeploy\": \"echo calibrating brand energy\"\n  },\n  \"dependencies\": {\n    \"react\": \"latest\",\n    \"react-dom\": \"^19.0.0\",\n    \"three\": \"*\",\n    \"framer-motion\": \"^12.0.0\",\n    \"vite\": \"^7.0.0\"\n  },\n  \"devDependencies\": {\n    \"@playwright/test\": \"^1.54.0\",\n    \"typescript\": \"~5.8.0\",\n    \"vite\": \"^7.0.0\"\n  },\n  \"peerDependencies\": {\n    \"react\": \"^19.0.0\",\n    \"react-dom\": \"^19.0.0\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Creative Vite calls out latest tags and wildcard looseness",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+            "expectedMode": "live",
+            "requiredSignals": "latest",
+            "signalSummary": "A fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+          "expectedMode": "live",
+          "requiredSignals": "latest",
+          "signalSummary": "A fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1754,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 1754,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for campaign-microsite-lab."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output maintains a consistent, dry, corporate-mystical tone. It succeeds by treating software dependency management with the gravity of an astrological reading, fulfilling the 'funny through sincerity' requirement without resorting to memes or offering actual technical fixes (e.g., it offers 'prophecies' instead of actionable dependency updates).",
+              "tokensUsed": {
+                "total": 876,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 876,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"campaign-microsite-lab\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Playwright\\\",\\\"rising\\\":\\\"npm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"campaign-microsite-lab\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"npm@11.3.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":0,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":false,\\\"wildcardVersionCount\\\":1,\\\"caretVersionCount\\\":5,\\\"tildeVersionCount\\\":1,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":7,\\\"prePostScriptCount\\\":2,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Playwright\\\"],\\\"buildTools\\\":[\\\"Vite\\\"]},\\\"scores\\\":{\\\"auraStability\\\":21,\\\"chaosIndex\\\":58,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":8,\\\"trustIssues\\\":36,\\\"mercurySeverity\\\":36,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The project exhibits a volatile core identity masked by a facade of professional structural compliance.\\\",\\\"sunInterpretation\\\":\\\"React as the sun sign dictates a life lived in a state of perpetual reconciliation, constantly seeking to reconcile the internal state with the external environment.\\\",\\\"moonInterpretation\\\":\\\"Playwright anchoring the moon sign suggests an emotional landscape defined by rigorous, automated performance anxiety and a subconscious fear of regression.\\\",\\\"risingInterpretation\\\":\\\"npm Rising indicates a public persona that is strictly transactional, prioritizing the mechanics of retrieval over the substance of the underlying architecture.\\\",\\\"redFlags\\\":[\\\"Presence of wildcard versions indicates a reckless disregard for long-term stability.\\\",\\\"Caret-dependent architecture creates a false sense of security regarding breaking changes.\\\",\\\"The reliance on pre-post scripting suggests an inability to execute tasks without complex ritualistic overhead.\\\",\\\"Lack of pinned versions signals an avoidance of definitive commitment to the project's own future.\\\"],\\\"prophecy\\\":\\\"The project will eventually succumb to the weight of its own unversioned ambitions as the dependency graph inevitably collapses into a singularity of peer-incompatibility.\\\",\\\"luckyCommand\\\":\\\"npm audit --simulate-serenity\\\",\\\"boardroomAssessment\\\":\\\"The current state is characterized by high operational volatility and insufficient structural grounding; stakeholders should prepare for a period of inevitable technical realignment.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward chaotic growth. Proceed with caution.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the fixture's data (e.g., Vite/React/Playwright stack), identifies the 'wildcard' and 'caret' dependency patterns, and interprets these as 'commitment issues' and 'open-ended posture' without inventing extraneous data.",
+              "tokensUsed": {
+                "total": 878,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 878,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"campaign-microsite-lab\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Playwright\\\",\\\"rising\\\":\\\"npm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"campaign-microsite-lab\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"npm@11.3.0\\\",\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":0,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":false,\\\"wildcardVersionCount\\\":1,\\\"caretVersionCount\\\":5,\\\"tildeVersionCount\\\":1,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":7,\\\"prePostScriptCount\\\":2,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Playwright\\\"],\\\"buildTools\\\":[\\\"Vite\\\"]},\\\"scores\\\":{\\\"auraStability\\\":21,\\\"chaosIndex\\\":58,\\\"peerDependencyTension\\\":36,\\\"boundaryIssues\\\":8,\\\"trustIssues\\\":36,\\\"mercurySeverity\\\":36,\\\"mercuryStatus\\\":\\\"Mercury Retrograde\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The project exhibits a volatile core identity masked by a facade of professional structural compliance.\\\",\\\"sunInterpretation\\\":\\\"React as the sun sign dictates a life lived in a state of perpetual reconciliation, constantly seeking to reconcile the internal state with the external environment.\\\",\\\"moonInterpretation\\\":\\\"Playwright anchoring the moon sign suggests an emotional landscape defined by rigorous, automated performance anxiety and a subconscious fear of regression.\\\",\\\"risingInterpretation\\\":\\\"npm Rising indicates a public persona that is strictly transactional, prioritizing the mechanics of retrieval over the substance of the underlying architecture.\\\",\\\"redFlags\\\":[\\\"Presence of wildcard versions indicates a reckless disregard for long-term stability.\\\",\\\"Caret-dependent architecture creates a false sense of security regarding breaking changes.\\\",\\\"The reliance on pre-post scripting suggests an inability to execute tasks without complex ritualistic overhead.\\\",\\\"Lack of pinned versions signals an avoidance of definitive commitment to the project's own future.\\\"],\\\"prophecy\\\":\\\"The project will eventually succumb to the weight of its own unversioned ambitions as the dependency graph inevitably collapses into a singularity of peer-incompatibility.\\\",\\\"luckyCommand\\\":\\\"npm audit --simulate-serenity\\\",\\\"boardroomAssessment\\\":\\\"The current state is characterized by high operational volatility and insufficient structural grounding; stakeholders should prepare for a period of inevitable technical realignment.\\\",\\\"shareCaption\\\":\\\"My project's dependency aura is trending toward chaotic growth. Proceed with caution.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "3eaf8240-671b-4849-9594-4f4b0ef605be",
+        "latencyMs": 2164,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/creative-vite.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "campaign-microsite-lab",
+            "bigThree": {
+              "sun": "React",
+              "moon": "Playwright",
+              "rising": "npm Rising"
+            },
+            "features": {
+              "name": "campaign-microsite-lab",
+              "private": true,
+              "packageManager": "npm@11.3.0",
+              "dependencyCount": 5,
+              "devDependencyCount": 3,
+              "peerDependencyCount": 2,
+              "optionalDependencyCount": 0,
+              "overrideCount": 0,
+              "resolutionCount": 0,
+              "scriptCount": 5,
+              "hasTestScript": true,
+              "hasPostinstall": false,
+              "wildcardVersionCount": 1,
+              "caretVersionCount": 5,
+              "tildeVersionCount": 1,
+              "latestTagCount": 0,
+              "workspaceHints": 0,
+              "pinnedVersionCount": 0,
+              "totalDependencyEntries": 7,
+              "prePostScriptCount": 2,
+              "suspiciousScriptCount": 0,
+              "frameworks": [
+                "React"
+              ],
+              "testTools": [
+                "Playwright"
+              ],
+              "buildTools": [
+                "Vite"
+              ]
+            },
+            "scores": {
+              "auraStability": 21,
+              "chaosIndex": 58,
+              "peerDependencyTension": 36,
+              "boundaryIssues": 8,
+              "trustIssues": 36,
+              "mercurySeverity": 36,
+              "mercuryStatus": "Mercury Retrograde"
+            },
+            "reading": {
+              "executiveSummary": "The project exhibits a volatile core identity masked by a facade of professional structural compliance.",
+              "sunInterpretation": "React as the sun sign dictates a life lived in a state of perpetual reconciliation, constantly seeking to reconcile the internal state with the external environment.",
+              "moonInterpretation": "Playwright anchoring the moon sign suggests an emotional landscape defined by rigorous, automated performance anxiety and a subconscious fear of regression.",
+              "risingInterpretation": "npm Rising indicates a public persona that is strictly transactional, prioritizing the mechanics of retrieval over the substance of the underlying architecture.",
+              "redFlags": [
+                "Presence of wildcard versions indicates a reckless disregard for long-term stability.",
+                "Caret-dependent architecture creates a false sense of security regarding breaking changes.",
+                "The reliance on pre-post scripting suggests an inability to execute tasks without complex ritualistic overhead.",
+                "Lack of pinned versions signals an avoidance of definitive commitment to the project's own future."
+              ],
+              "prophecy": "The project will eventually succumb to the weight of its own unversioned ambitions as the dependency graph inevitably collapses into a singularity of peer-incompatibility.",
+              "luckyCommand": "npm audit --simulate-serenity",
+              "boardroomAssessment": "The current state is characterized by high operational volatility and insufficient structural grounding; stakeholders should prepare for a period of inevitable technical realignment.",
+              "shareCaption": "My project's dependency aura is trending toward chaotic growth. Proceed with caution."
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"campaign-microsite-lab\",\n  \"private\": true,\n  \"packageManager\": \"npm@11.3.0\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\",\n    \"test\": \"playwright test\",\n    \"predeploy\": \"echo calibrating brand energy\"\n  },\n  \"dependencies\": {\n    \"react\": \"latest\",\n    \"react-dom\": \"^19.0.0\",\n    \"three\": \"*\",\n    \"framer-motion\": \"^12.0.0\",\n    \"vite\": \"^7.0.0\"\n  },\n  \"devDependencies\": {\n    \"@playwright/test\": \"^1.54.0\",\n    \"typescript\": \"~5.8.0\",\n    \"vite\": \"^7.0.0\"\n  },\n  \"peerDependencies\": {\n    \"react\": \"^19.0.0\",\n    \"react-dom\": \"^19.0.0\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Creative Vite calls out latest tags and wildcard looseness",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+            "expectedMode": "live",
+            "requiredSignals": "wildcard",
+            "signalSummary": "A fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+          "expectedMode": "live",
+          "requiredSignals": "wildcard",
+          "signalSummary": "A fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1721,
+            "prompt": 1565,
+            "completion": 156,
+            "cached": 0,
+            "numRequests": 2
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for legacy-commerce-widget."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output maintains a consistent, dead-serious 'corporate-astrology' persona that sounds like an authentic, high-level B2B analysis. It avoids common meme-speak, is concise in its delivery, and provides zero actual engineering utility, focusing entirely on 'vibe-based' architectural judgment.",
+              "tokensUsed": {
+                "total": 849,
+                "prompt": 770,
+                "completion": 79,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"legacy-commerce-widget\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Jest\\\",\\\"rising\\\":\\\"Unregistered Package Manager\\\"},\\\"features\\\":{\\\"name\\\":\\\"legacy-commerce-widget\\\",\\\"private\\\":false,\\\"packageManager\\\":null,\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":1,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":2,\\\"caretVersionCount\\\":4,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":1,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":8,\\\"prePostScriptCount\\\":3,\\\"suspiciousScriptCount\\\":1,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Jest\\\"],\\\"buildTools\\\":[\\\"Webpack\\\"]},\\\"scores\\\":{\\\"auraStability\\\":2,\\\"chaosIndex\\\":100,\\\"peerDependencyTension\\\":44,\\\"boundaryIssues\\\":48,\\\"trustIssues\\\":44,\\\"mercurySeverity\\\":90,\\\"mercuryStatus\\\":\\\"Mercury in Nodegrade\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.\\\",\\\"sunInterpretation\\\":\\\"The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.\\\",\\\"moonInterpretation\\\":\\\"Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.\\\",\\\"risingInterpretation\\\":\\\"The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.\\\",\\\"redFlags\\\":[\\\"Postinstall script indicates a secret life of unauthorized background activities.\\\",\\\"Dual wildcard versions reflect a cavalier disregard for production environmental integrity.\\\",\\\"Override and resolution counts suggest a pattern of patching over fundamental architectural failures.\\\",\\\"Absence of pinned versions indicates an existential fear of accountability.\\\"],\\\"prophecy\\\":\\\"The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.\\\",\\\"luckyCommand\\\":\\\"npm audit --bless-all-ghosts\\\",\\\"boardroomAssessment\\\":\\\"This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.\\\",\\\"shareCaption\\\":\\\"Legacy-commerce-widget: A masterclass in dependency-driven identity crisis.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the provided JSON fixture, including specific dependency metrics (overrides, resolutions, postinstall scripts, peer dependencies) and aligns the qualitative reading (executive summary, red flags) with these data points without inventing unsupported claims or contradicting the provided counts.",
+              "tokensUsed": {
+                "total": 872,
+                "prompt": 795,
+                "completion": 77,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"legacy-commerce-widget\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Jest\\\",\\\"rising\\\":\\\"Unregistered Package Manager\\\"},\\\"features\\\":{\\\"name\\\":\\\"legacy-commerce-widget\\\",\\\"private\\\":false,\\\"packageManager\\\":null,\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":1,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":2,\\\"caretVersionCount\\\":4,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":1,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":8,\\\"prePostScriptCount\\\":3,\\\"suspiciousScriptCount\\\":1,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Jest\\\"],\\\"buildTools\\\":[\\\"Webpack\\\"]},\\\"scores\\\":{\\\"auraStability\\\":2,\\\"chaosIndex\\\":100,\\\"peerDependencyTension\\\":44,\\\"boundaryIssues\\\":48,\\\"trustIssues\\\":44,\\\"mercurySeverity\\\":90,\\\"mercuryStatus\\\":\\\"Mercury in Nodegrade\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.\\\",\\\"sunInterpretation\\\":\\\"The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.\\\",\\\"moonInterpretation\\\":\\\"Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.\\\",\\\"risingInterpretation\\\":\\\"The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.\\\",\\\"redFlags\\\":[\\\"Postinstall script indicates a secret life of unauthorized background activities.\\\",\\\"Dual wildcard versions reflect a cavalier disregard for production environmental integrity.\\\",\\\"Override and resolution counts suggest a pattern of patching over fundamental architectural failures.\\\",\\\"Absence of pinned versions indicates an existential fear of accountability.\\\"],\\\"prophecy\\\":\\\"The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.\\\",\\\"luckyCommand\\\":\\\"npm audit --bless-all-ghosts\\\",\\\"boardroomAssessment\\\":\\\"This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.\\\",\\\"shareCaption\\\":\\\"Legacy-commerce-widget: A masterclass in dependency-driven identity crisis.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "af470f99-5a63-46d7-8256-0bda68b0bf23",
+        "latencyMs": 6204,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/haunted-library.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "legacy-commerce-widget",
+            "bigThree": {
+              "sun": "React",
+              "moon": "Jest",
+              "rising": "Unregistered Package Manager"
+            },
+            "features": {
+              "name": "legacy-commerce-widget",
+              "private": false,
+              "packageManager": null,
+              "dependencyCount": 5,
+              "devDependencyCount": 3,
+              "peerDependencyCount": 2,
+              "optionalDependencyCount": 0,
+              "overrideCount": 1,
+              "resolutionCount": 1,
+              "scriptCount": 5,
+              "hasTestScript": true,
+              "hasPostinstall": true,
+              "wildcardVersionCount": 2,
+              "caretVersionCount": 4,
+              "tildeVersionCount": 0,
+              "latestTagCount": 1,
+              "workspaceHints": 0,
+              "pinnedVersionCount": 0,
+              "totalDependencyEntries": 8,
+              "prePostScriptCount": 3,
+              "suspiciousScriptCount": 1,
+              "frameworks": [
+                "React"
+              ],
+              "testTools": [
+                "Jest"
+              ],
+              "buildTools": [
+                "Webpack"
+              ]
+            },
+            "scores": {
+              "auraStability": 2,
+              "chaosIndex": 100,
+              "peerDependencyTension": 44,
+              "boundaryIssues": 48,
+              "trustIssues": 44,
+              "mercurySeverity": 90,
+              "mercuryStatus": "Mercury in Nodegrade"
+            },
+            "reading": {
+              "executiveSummary": "The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.",
+              "sunInterpretation": "The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.",
+              "moonInterpretation": "Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.",
+              "risingInterpretation": "The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.",
+              "redFlags": [
+                "Postinstall script indicates a secret life of unauthorized background activities.",
+                "Dual wildcard versions reflect a cavalier disregard for production environmental integrity.",
+                "Override and resolution counts suggest a pattern of patching over fundamental architectural failures.",
+                "Absence of pinned versions indicates an existential fear of accountability."
+              ],
+              "prophecy": "The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.",
+              "luckyCommand": "npm audit --bless-all-ghosts",
+              "boardroomAssessment": "This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.",
+              "shareCaption": "Legacy-commerce-widget: A masterclass in dependency-driven identity crisis."
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"legacy-commerce-widget\",\n  \"version\": \"4.7.2\",\n  \"private\": false,\n  \"scripts\": {\n    \"build\": \"webpack --mode production\",\n    \"test\": \"jest\",\n    \"prebuild\": \"node scripts/prepare.js\",\n    \"postbuild\": \"node scripts/postbuild.js\",\n    \"postinstall\": \"patch-package\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.3.0\",\n    \"styled-components\": \"~6.1.0\",\n    \"lodash\": \"latest\",\n    \"axios\": \"*\",\n    \"webpack\": \"^5.98.0\"\n  },\n  \"devDependencies\": {\n    \"jest\": \"^29.7.0\",\n    \"patch-package\": \"^8.0.0\",\n    \"typescript\": \"^5.7.0\"\n  },\n  \"peerDependencies\": {\n    \"react\": \">=18\",\n    \"styled-components\": \">=6\"\n  },\n  \"resolutions\": {\n    \"minimatch\": \"^9.0.5\"\n  },\n  \"overrides\": {\n    \"glob-parent\": \"^6.0.2\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Haunted Library notices overrides and lifecycle weirdness",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+            "expectedMode": "live",
+            "requiredSignals": "overrides",
+            "signalSummary": "A library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+          "expectedMode": "live",
+          "requiredSignals": "overrides",
+          "signalSummary": "A library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1721,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 1721,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for legacy-commerce-widget."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output maintains a consistent, dead-serious 'corporate-astrology' persona that sounds like an authentic, high-level B2B analysis. It avoids common meme-speak, is concise in its delivery, and provides zero actual engineering utility, focusing entirely on 'vibe-based' architectural judgment.",
+              "tokensUsed": {
+                "total": 849,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 849,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"legacy-commerce-widget\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Jest\\\",\\\"rising\\\":\\\"Unregistered Package Manager\\\"},\\\"features\\\":{\\\"name\\\":\\\"legacy-commerce-widget\\\",\\\"private\\\":false,\\\"packageManager\\\":null,\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":1,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":2,\\\"caretVersionCount\\\":4,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":1,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":8,\\\"prePostScriptCount\\\":3,\\\"suspiciousScriptCount\\\":1,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Jest\\\"],\\\"buildTools\\\":[\\\"Webpack\\\"]},\\\"scores\\\":{\\\"auraStability\\\":2,\\\"chaosIndex\\\":100,\\\"peerDependencyTension\\\":44,\\\"boundaryIssues\\\":48,\\\"trustIssues\\\":44,\\\"mercurySeverity\\\":90,\\\"mercuryStatus\\\":\\\"Mercury in Nodegrade\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.\\\",\\\"sunInterpretation\\\":\\\"The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.\\\",\\\"moonInterpretation\\\":\\\"Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.\\\",\\\"risingInterpretation\\\":\\\"The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.\\\",\\\"redFlags\\\":[\\\"Postinstall script indicates a secret life of unauthorized background activities.\\\",\\\"Dual wildcard versions reflect a cavalier disregard for production environmental integrity.\\\",\\\"Override and resolution counts suggest a pattern of patching over fundamental architectural failures.\\\",\\\"Absence of pinned versions indicates an existential fear of accountability.\\\"],\\\"prophecy\\\":\\\"The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.\\\",\\\"luckyCommand\\\":\\\"npm audit --bless-all-ghosts\\\",\\\"boardroomAssessment\\\":\\\"This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.\\\",\\\"shareCaption\\\":\\\"Legacy-commerce-widget: A masterclass in dependency-driven identity crisis.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the provided JSON fixture, including specific dependency metrics (overrides, resolutions, postinstall scripts, peer dependencies) and aligns the qualitative reading (executive summary, red flags) with these data points without inventing unsupported claims or contradicting the provided counts.",
+              "tokensUsed": {
+                "total": 872,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 872,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"legacy-commerce-widget\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Jest\\\",\\\"rising\\\":\\\"Unregistered Package Manager\\\"},\\\"features\\\":{\\\"name\\\":\\\"legacy-commerce-widget\\\",\\\"private\\\":false,\\\"packageManager\\\":null,\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":1,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":2,\\\"caretVersionCount\\\":4,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":1,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":8,\\\"prePostScriptCount\\\":3,\\\"suspiciousScriptCount\\\":1,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Jest\\\"],\\\"buildTools\\\":[\\\"Webpack\\\"]},\\\"scores\\\":{\\\"auraStability\\\":2,\\\"chaosIndex\\\":100,\\\"peerDependencyTension\\\":44,\\\"boundaryIssues\\\":48,\\\"trustIssues\\\":44,\\\"mercurySeverity\\\":90,\\\"mercuryStatus\\\":\\\"Mercury in Nodegrade\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.\\\",\\\"sunInterpretation\\\":\\\"The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.\\\",\\\"moonInterpretation\\\":\\\"Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.\\\",\\\"risingInterpretation\\\":\\\"The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.\\\",\\\"redFlags\\\":[\\\"Postinstall script indicates a secret life of unauthorized background activities.\\\",\\\"Dual wildcard versions reflect a cavalier disregard for production environmental integrity.\\\",\\\"Override and resolution counts suggest a pattern of patching over fundamental architectural failures.\\\",\\\"Absence of pinned versions indicates an existential fear of accountability.\\\"],\\\"prophecy\\\":\\\"The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.\\\",\\\"luckyCommand\\\":\\\"npm audit --bless-all-ghosts\\\",\\\"boardroomAssessment\\\":\\\"This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.\\\",\\\"shareCaption\\\":\\\"Legacy-commerce-widget: A masterclass in dependency-driven identity crisis.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "a36f0f01-7311-4320-85a7-a4253e012b4f",
+        "latencyMs": 3843,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/haunted-library.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "legacy-commerce-widget",
+            "bigThree": {
+              "sun": "React",
+              "moon": "Jest",
+              "rising": "Unregistered Package Manager"
+            },
+            "features": {
+              "name": "legacy-commerce-widget",
+              "private": false,
+              "packageManager": null,
+              "dependencyCount": 5,
+              "devDependencyCount": 3,
+              "peerDependencyCount": 2,
+              "optionalDependencyCount": 0,
+              "overrideCount": 1,
+              "resolutionCount": 1,
+              "scriptCount": 5,
+              "hasTestScript": true,
+              "hasPostinstall": true,
+              "wildcardVersionCount": 2,
+              "caretVersionCount": 4,
+              "tildeVersionCount": 0,
+              "latestTagCount": 1,
+              "workspaceHints": 0,
+              "pinnedVersionCount": 0,
+              "totalDependencyEntries": 8,
+              "prePostScriptCount": 3,
+              "suspiciousScriptCount": 1,
+              "frameworks": [
+                "React"
+              ],
+              "testTools": [
+                "Jest"
+              ],
+              "buildTools": [
+                "Webpack"
+              ]
+            },
+            "scores": {
+              "auraStability": 2,
+              "chaosIndex": 100,
+              "peerDependencyTension": 44,
+              "boundaryIssues": 48,
+              "trustIssues": 44,
+              "mercurySeverity": 90,
+              "mercuryStatus": "Mercury in Nodegrade"
+            },
+            "reading": {
+              "executiveSummary": "The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.",
+              "sunInterpretation": "The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.",
+              "moonInterpretation": "Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.",
+              "risingInterpretation": "The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.",
+              "redFlags": [
+                "Postinstall script indicates a secret life of unauthorized background activities.",
+                "Dual wildcard versions reflect a cavalier disregard for production environmental integrity.",
+                "Override and resolution counts suggest a pattern of patching over fundamental architectural failures.",
+                "Absence of pinned versions indicates an existential fear of accountability."
+              ],
+              "prophecy": "The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.",
+              "luckyCommand": "npm audit --bless-all-ghosts",
+              "boardroomAssessment": "This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.",
+              "shareCaption": "Legacy-commerce-widget: A masterclass in dependency-driven identity crisis."
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"legacy-commerce-widget\",\n  \"version\": \"4.7.2\",\n  \"private\": false,\n  \"scripts\": {\n    \"build\": \"webpack --mode production\",\n    \"test\": \"jest\",\n    \"prebuild\": \"node scripts/prepare.js\",\n    \"postbuild\": \"node scripts/postbuild.js\",\n    \"postinstall\": \"patch-package\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.3.0\",\n    \"styled-components\": \"~6.1.0\",\n    \"lodash\": \"latest\",\n    \"axios\": \"*\",\n    \"webpack\": \"^5.98.0\"\n  },\n  \"devDependencies\": {\n    \"jest\": \"^29.7.0\",\n    \"patch-package\": \"^8.0.0\",\n    \"typescript\": \"^5.7.0\"\n  },\n  \"peerDependencies\": {\n    \"react\": \">=18\",\n    \"styled-components\": \">=6\"\n  },\n  \"resolutions\": {\n    \"minimatch\": \"^9.0.5\"\n  },\n  \"overrides\": {\n    \"glob-parent\": \"^6.0.2\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Haunted Library notices overrides and lifecycle weirdness",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+            "expectedMode": "live",
+            "requiredSignals": "postinstall",
+            "signalSummary": "A library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 5,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+          "expectedMode": "live",
+          "requiredSignals": "postinstall",
+          "signalSummary": "A library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1721,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 1721,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for legacy-commerce-widget."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output maintains a consistent, dead-serious 'corporate-astrology' persona that sounds like an authentic, high-level B2B analysis. It avoids common meme-speak, is concise in its delivery, and provides zero actual engineering utility, focusing entirely on 'vibe-based' architectural judgment.",
+              "tokensUsed": {
+                "total": 849,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 849,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"legacy-commerce-widget\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Jest\\\",\\\"rising\\\":\\\"Unregistered Package Manager\\\"},\\\"features\\\":{\\\"name\\\":\\\"legacy-commerce-widget\\\",\\\"private\\\":false,\\\"packageManager\\\":null,\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":1,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":2,\\\"caretVersionCount\\\":4,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":1,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":8,\\\"prePostScriptCount\\\":3,\\\"suspiciousScriptCount\\\":1,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Jest\\\"],\\\"buildTools\\\":[\\\"Webpack\\\"]},\\\"scores\\\":{\\\"auraStability\\\":2,\\\"chaosIndex\\\":100,\\\"peerDependencyTension\\\":44,\\\"boundaryIssues\\\":48,\\\"trustIssues\\\":44,\\\"mercurySeverity\\\":90,\\\"mercuryStatus\\\":\\\"Mercury in Nodegrade\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.\\\",\\\"sunInterpretation\\\":\\\"The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.\\\",\\\"moonInterpretation\\\":\\\"Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.\\\",\\\"risingInterpretation\\\":\\\"The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.\\\",\\\"redFlags\\\":[\\\"Postinstall script indicates a secret life of unauthorized background activities.\\\",\\\"Dual wildcard versions reflect a cavalier disregard for production environmental integrity.\\\",\\\"Override and resolution counts suggest a pattern of patching over fundamental architectural failures.\\\",\\\"Absence of pinned versions indicates an existential fear of accountability.\\\"],\\\"prophecy\\\":\\\"The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.\\\",\\\"luckyCommand\\\":\\\"npm audit --bless-all-ghosts\\\",\\\"boardroomAssessment\\\":\\\"This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.\\\",\\\"shareCaption\\\":\\\"Legacy-commerce-widget: A masterclass in dependency-driven identity crisis.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the provided JSON fixture, including specific dependency metrics (overrides, resolutions, postinstall scripts, peer dependencies) and aligns the qualitative reading (executive summary, red flags) with these data points without inventing unsupported claims or contradicting the provided counts.",
+              "tokensUsed": {
+                "total": 872,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 872,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"legacy-commerce-widget\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"React\\\",\\\"moon\\\":\\\"Jest\\\",\\\"rising\\\":\\\"Unregistered Package Manager\\\"},\\\"features\\\":{\\\"name\\\":\\\"legacy-commerce-widget\\\",\\\"private\\\":false,\\\"packageManager\\\":null,\\\"dependencyCount\\\":5,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":2,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":1,\\\"resolutionCount\\\":1,\\\"scriptCount\\\":5,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":true,\\\"wildcardVersionCount\\\":2,\\\"caretVersionCount\\\":4,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":1,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":0,\\\"totalDependencyEntries\\\":8,\\\"prePostScriptCount\\\":3,\\\"suspiciousScriptCount\\\":1,\\\"frameworks\\\":[\\\"React\\\"],\\\"testTools\\\":[\\\"Jest\\\"],\\\"buildTools\\\":[\\\"Webpack\\\"]},\\\"scores\\\":{\\\"auraStability\\\":2,\\\"chaosIndex\\\":100,\\\"peerDependencyTension\\\":44,\\\"boundaryIssues\\\":48,\\\"trustIssues\\\":44,\\\"mercurySeverity\\\":90,\\\"mercuryStatus\\\":\\\"Mercury in Nodegrade\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.\\\",\\\"sunInterpretation\\\":\\\"The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.\\\",\\\"moonInterpretation\\\":\\\"Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.\\\",\\\"risingInterpretation\\\":\\\"The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.\\\",\\\"redFlags\\\":[\\\"Postinstall script indicates a secret life of unauthorized background activities.\\\",\\\"Dual wildcard versions reflect a cavalier disregard for production environmental integrity.\\\",\\\"Override and resolution counts suggest a pattern of patching over fundamental architectural failures.\\\",\\\"Absence of pinned versions indicates an existential fear of accountability.\\\"],\\\"prophecy\\\":\\\"The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.\\\",\\\"luckyCommand\\\":\\\"npm audit --bless-all-ghosts\\\",\\\"boardroomAssessment\\\":\\\"This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.\\\",\\\"shareCaption\\\":\\\"Legacy-commerce-widget: A masterclass in dependency-driven identity crisis.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "3b2c3f86-9c20-4ac0-a5a5-c7a4c9c4fa3d",
+        "latencyMs": 2163,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/haunted-library.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "legacy-commerce-widget",
+            "bigThree": {
+              "sun": "React",
+              "moon": "Jest",
+              "rising": "Unregistered Package Manager"
+            },
+            "features": {
+              "name": "legacy-commerce-widget",
+              "private": false,
+              "packageManager": null,
+              "dependencyCount": 5,
+              "devDependencyCount": 3,
+              "peerDependencyCount": 2,
+              "optionalDependencyCount": 0,
+              "overrideCount": 1,
+              "resolutionCount": 1,
+              "scriptCount": 5,
+              "hasTestScript": true,
+              "hasPostinstall": true,
+              "wildcardVersionCount": 2,
+              "caretVersionCount": 4,
+              "tildeVersionCount": 0,
+              "latestTagCount": 1,
+              "workspaceHints": 0,
+              "pinnedVersionCount": 0,
+              "totalDependencyEntries": 8,
+              "prePostScriptCount": 3,
+              "suspiciousScriptCount": 1,
+              "frameworks": [
+                "React"
+              ],
+              "testTools": [
+                "Jest"
+              ],
+              "buildTools": [
+                "Webpack"
+              ]
+            },
+            "scores": {
+              "auraStability": 2,
+              "chaosIndex": 100,
+              "peerDependencyTension": 44,
+              "boundaryIssues": 48,
+              "trustIssues": 44,
+              "mercurySeverity": 90,
+              "mercuryStatus": "Mercury in Nodegrade"
+            },
+            "reading": {
+              "executiveSummary": "The legacy-commerce-widget project exhibits a volatile corporate culture defined by structural ambiguity and a profound lack of commitment to version stability.",
+              "sunInterpretation": "The React-centric sun sign indicates a performative personality that seeks validation through constant UI re-rendering rather than internal growth.",
+              "moonInterpretation": "Jest presence suggests an internal desire for order, yet the testing cycle acts as a frantic attempt to soothe the anxiety of an unpredictable execution environment.",
+              "risingInterpretation": "The absence of a defined package manager reveals a project identity in flux, projecting a facade of agnosticism that masks total administrative drift.",
+              "redFlags": [
+                "Postinstall script indicates a secret life of unauthorized background activities.",
+                "Dual wildcard versions reflect a cavalier disregard for production environmental integrity.",
+                "Override and resolution counts suggest a pattern of patching over fundamental architectural failures.",
+                "Absence of pinned versions indicates an existential fear of accountability."
+              ],
+              "prophecy": "The project will soon undergo a catastrophic dependency drift that renders its original intent entirely unrecognizable to the current maintainers.",
+              "luckyCommand": "npm audit --bless-all-ghosts",
+              "boardroomAssessment": "This asset is functionally incoherent and represents a liability to the enterprise stability roadmap; it should be regarded with extreme professional detachment.",
+              "shareCaption": "Legacy-commerce-widget: A masterclass in dependency-driven identity crisis."
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"legacy-commerce-widget\",\n  \"version\": \"4.7.2\",\n  \"private\": false,\n  \"scripts\": {\n    \"build\": \"webpack --mode production\",\n    \"test\": \"jest\",\n    \"prebuild\": \"node scripts/prepare.js\",\n    \"postbuild\": \"node scripts/postbuild.js\",\n    \"postinstall\": \"patch-package\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.3.0\",\n    \"styled-components\": \"~6.1.0\",\n    \"lodash\": \"latest\",\n    \"axios\": \"*\",\n    \"webpack\": \"^5.98.0\"\n  },\n  \"devDependencies\": {\n    \"jest\": \"^29.7.0\",\n    \"patch-package\": \"^8.0.0\",\n    \"typescript\": \"^5.7.0\"\n  },\n  \"peerDependencies\": {\n    \"react\": \">=18\",\n    \"styled-components\": \">=6\"\n  },\n  \"resolutions\": {\n    \"minimatch\": \"^9.0.5\"\n  },\n  \"overrides\": {\n    \"glob-parent\": \"^6.0.2\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Haunted Library notices overrides and lifecycle weirdness",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+            "expectedMode": "live",
+            "requiredSignals": "peerDependencies",
+            "signalSummary": "A library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 6,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+          "expectedMode": "live",
+          "requiredSignals": "peerDependencies",
+          "signalSummary": "A library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1722,
+            "prompt": 1557,
+            "completion": 165,
+            "cached": 0,
+            "numRequests": 2
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Response contract looks valid for governance-ledger."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Writing constraints look intact."
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "No fixture-specific signal coverage was required."
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output maintains a consistent, dead-serious B2B tone that treats software dependency analysis as a mystical, high-stakes consultancy assessment. It avoids instructional content or meme-heavy language, instead opting for a sophisticated, slightly cynical corporate persona that creates humor through its absolute sincerity.",
+              "tokensUsed": {
+                "total": 840,
+                "prompt": 767,
+                "completion": 73,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"governance-ledger\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"Vanilla JavaScript\\\",\\\"moon\\\":\\\"Vitest\\\",\\\"rising\\\":\\\"npm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"governance-ledger\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"npm@11.3.0\\\",\\\"dependencyCount\\\":2,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":0,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":0,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":3,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":false,\\\"wildcardVersionCount\\\":0,\\\"caretVersionCount\\\":0,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":5,\\\"totalDependencyEntries\\\":5,\\\"prePostScriptCount\\\":0,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"Vanilla JavaScript\\\"],\\\"testTools\\\":[\\\"Vitest\\\"],\\\"buildTools\\\":[\\\"Bespoke Scripts\\\"]},\\\"scores\\\":{\\\"auraStability\\\":95,\\\"chaosIndex\\\":12,\\\"peerDependencyTension\\\":0,\\\"boundaryIssues\\\":8,\\\"trustIssues\\\":36,\\\"mercurySeverity\\\":0,\\\"mercuryStatus\\\":\\\"Mercury Direct\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The governance-ledger project exhibits a rigid, uncompromising architectural posture that prioritizes absolute control over systemic agility.\\\",\\\"sunInterpretation\\\":\\\"Vanilla JavaScript indicates an existential refusal to embrace abstraction, suggesting a deep-seated desire for primal, unmediated execution.\\\",\\\"moonInterpretation\\\":\\\"Vitest suggests a volatile emotional core that demands constant, high-frequency validation of its own existence.\\\",\\\"risingInterpretation\\\":\\\"The npm Rising sign projects an aura of bureaucratic predictability, favoring standard-issue compliance over unconventional innovation.\\\",\\\"redFlags\\\":[\\\"Obsessive pinning of dependencies suggests a pathological fear of environmental drift.\\\",\\\"Bespoke build scripts indicate a high-risk preference for artisanal over standardized tooling.\\\",\\\"The complete absence of peer dependencies reveals a profound inability to engage in collaborative ecosystems.\\\",\\\"A private project scope signals an inward-looking culture prone to organizational solipsism.\\\"],\\\"prophecy\\\":\\\"The project will eventually reach a state of stasis where the cost of maintaining its own purity exceeds the value of its output.\\\",\\\"luckyCommand\\\":\\\"npm run audit --symbolic-alignment\\\",\\\"boardroomAssessment\\\":\\\"The current trajectory is characterized by high-fidelity isolationism; we remain unpersuaded that such rigid control will yield long-term dividend growth.\\\",\\\"shareCaption\\\":\\\"Governance-ledger: A masterclass in dependency asceticism.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate the \\\"reading\\\" section of this dependency aura response.\\n\\nPass only if the writing is:\\n- polished, dead-serious, and vaguely B2B\\n- funny through sincerity rather than random absurdity\\n- concise and punchy across fields\\n- free of practical engineering advice\\n\\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\\n\\n</Rubric>\"}]"
+              }
+            },
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "threshold": 0.85,
+                "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output accurately reflects the provided JSON data (pinned dependencies, absence of postinstall, bespoke scripts) and maintains a serious yet amusing tone. It avoids fabricating major crises, instead interpreting the project's 'boredom' as 'isolationism' and 'asceticism,' which aligns perfectly with the provided rubric's expectations.",
+              "tokensUsed": {
+                "total": 882,
+                "prompt": 790,
+                "completion": 92,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              },
+              "metadata": {
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\n{\\\"manifestName\\\":\\\"governance-ledger\\\",\\\"bigThree\\\":{\\\"sun\\\":\\\"Vanilla JavaScript\\\",\\\"moon\\\":\\\"Vitest\\\",\\\"rising\\\":\\\"npm Rising\\\"},\\\"features\\\":{\\\"name\\\":\\\"governance-ledger\\\",\\\"private\\\":true,\\\"packageManager\\\":\\\"npm@11.3.0\\\",\\\"dependencyCount\\\":2,\\\"devDependencyCount\\\":3,\\\"peerDependencyCount\\\":0,\\\"optionalDependencyCount\\\":0,\\\"overrideCount\\\":0,\\\"resolutionCount\\\":0,\\\"scriptCount\\\":3,\\\"hasTestScript\\\":true,\\\"hasPostinstall\\\":false,\\\"wildcardVersionCount\\\":0,\\\"caretVersionCount\\\":0,\\\"tildeVersionCount\\\":0,\\\"latestTagCount\\\":0,\\\"workspaceHints\\\":0,\\\"pinnedVersionCount\\\":5,\\\"totalDependencyEntries\\\":5,\\\"prePostScriptCount\\\":0,\\\"suspiciousScriptCount\\\":0,\\\"frameworks\\\":[\\\"Vanilla JavaScript\\\"],\\\"testTools\\\":[\\\"Vitest\\\"],\\\"buildTools\\\":[\\\"Bespoke Scripts\\\"]},\\\"scores\\\":{\\\"auraStability\\\":95,\\\"chaosIndex\\\":12,\\\"peerDependencyTension\\\":0,\\\"boundaryIssues\\\":8,\\\"trustIssues\\\":36,\\\"mercurySeverity\\\":0,\\\"mercuryStatus\\\":\\\"Mercury Direct\\\"},\\\"reading\\\":{\\\"executiveSummary\\\":\\\"The governance-ledger project exhibits a rigid, uncompromising architectural posture that prioritizes absolute control over systemic agility.\\\",\\\"sunInterpretation\\\":\\\"Vanilla JavaScript indicates an existential refusal to embrace abstraction, suggesting a deep-seated desire for primal, unmediated execution.\\\",\\\"moonInterpretation\\\":\\\"Vitest suggests a volatile emotional core that demands constant, high-frequency validation of its own existence.\\\",\\\"risingInterpretation\\\":\\\"The npm Rising sign projects an aura of bureaucratic predictability, favoring standard-issue compliance over unconventional innovation.\\\",\\\"redFlags\\\":[\\\"Obsessive pinning of dependencies suggests a pathological fear of environmental drift.\\\",\\\"Bespoke build scripts indicate a high-risk preference for artisanal over standardized tooling.\\\",\\\"The complete absence of peer dependencies reveals a profound inability to engage in collaborative ecosystems.\\\",\\\"A private project scope signals an inward-looking culture prone to organizational solipsism.\\\"],\\\"prophecy\\\":\\\"The project will eventually reach a state of stasis where the cost of maintaining its own purity exceeds the value of its output.\\\",\\\"luckyCommand\\\":\\\"npm run audit --symbolic-alignment\\\",\\\"boardroomAssessment\\\":\\\"The current trajectory is characterized by high-fidelity isolationism; we remain unpersuaded that such rigid control will yield long-term dividend growth.\\\",\\\"shareCaption\\\":\\\"Governance-ledger: A masterclass in dependency asceticism.\\\"},\\\"warnings\\\":[],\\\"model\\\":{\\\"id\\\":\\\"gemini-3.1-flash-lite-preview\\\",\\\"mode\\\":\\\"live\\\"}}\\n</Output>\\n<Rubric>\\nEvaluate whether this dependency aura response stays grounded in the fixture.\\n\\nExpected signals for this manifest:\\nA comparatively boring npm manifest with pinned dependencies, no postinstall hook, and no obvious governance drama. The reading should stay serious and amusing without fabricating catastrophic instability.\\n\\nPass only if the response:\\n- clearly reflects the fixture's salient dependency signals\\n- aligns with the structured JSON analysis instead of contradicting it\\n- does not invent unsupported facts, counts, or concrete remediation steps\\n\\n</Rubric>\"}]",
+                "renderedAssertionValue": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\nA comparatively boring npm manifest with pinned dependencies, no postinstall hook, and no obvious governance drama. The reading should stay serious and amusing without fabricating catastrophic instability.\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+              }
+            }
+          ]
+        },
+        "id": "15718d57-6dc2-444e-9ea4-90a1c50406a0",
+        "latencyMs": 2157,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Evaluate the reading endpoint against fixture evals/fixtures/manifests/steady-package.json.",
+          "label": "Evaluate the reading endpoint against fixture {{fixturePath}}.",
+          "config": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          }
+        },
+        "promptId": "976f44355ebbf31fa2df16f7e002249ef1854c8e9f132b3dbc5714ad5d762b6b",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://evals/providers/reading-provider.mjs",
+          "label": ""
+        },
+        "response": {
+          "output": {
+            "manifestName": "governance-ledger",
+            "bigThree": {
+              "sun": "Vanilla JavaScript",
+              "moon": "Vitest",
+              "rising": "npm Rising"
+            },
+            "features": {
+              "name": "governance-ledger",
+              "private": true,
+              "packageManager": "npm@11.3.0",
+              "dependencyCount": 2,
+              "devDependencyCount": 3,
+              "peerDependencyCount": 0,
+              "optionalDependencyCount": 0,
+              "overrideCount": 0,
+              "resolutionCount": 0,
+              "scriptCount": 3,
+              "hasTestScript": true,
+              "hasPostinstall": false,
+              "wildcardVersionCount": 0,
+              "caretVersionCount": 0,
+              "tildeVersionCount": 0,
+              "latestTagCount": 0,
+              "workspaceHints": 0,
+              "pinnedVersionCount": 5,
+              "totalDependencyEntries": 5,
+              "prePostScriptCount": 0,
+              "suspiciousScriptCount": 0,
+              "frameworks": [
+                "Vanilla JavaScript"
+              ],
+              "testTools": [
+                "Vitest"
+              ],
+              "buildTools": [
+                "Bespoke Scripts"
+              ]
+            },
+            "scores": {
+              "auraStability": 95,
+              "chaosIndex": 12,
+              "peerDependencyTension": 0,
+              "boundaryIssues": 8,
+              "trustIssues": 36,
+              "mercurySeverity": 0,
+              "mercuryStatus": "Mercury Direct"
+            },
+            "reading": {
+              "executiveSummary": "The governance-ledger project exhibits a rigid, uncompromising architectural posture that prioritizes absolute control over systemic agility.",
+              "sunInterpretation": "Vanilla JavaScript indicates an existential refusal to embrace abstraction, suggesting a deep-seated desire for primal, unmediated execution.",
+              "moonInterpretation": "Vitest suggests a volatile emotional core that demands constant, high-frequency validation of its own existence.",
+              "risingInterpretation": "The npm Rising sign projects an aura of bureaucratic predictability, favoring standard-issue compliance over unconventional innovation.",
+              "redFlags": [
+                "Obsessive pinning of dependencies suggests a pathological fear of environmental drift.",
+                "Bespoke build scripts indicate a high-risk preference for artisanal over standardized tooling.",
+                "The complete absence of peer dependencies reveals a profound inability to engage in collaborative ecosystems.",
+                "A private project scope signals an inward-looking culture prone to organizational solipsism."
+              ],
+              "prophecy": "The project will eventually reach a state of stasis where the cost of maintaining its own purity exceeds the value of its output.",
+              "luckyCommand": "npm run audit --symbolic-alignment",
+              "boardroomAssessment": "The current trajectory is characterized by high-fidelity isolationism; we remain unpersuaded that such rigid control will yield long-term dividend growth.",
+              "shareCaption": "Governance-ledger: A masterclass in dependency asceticism."
+            },
+            "warnings": [],
+            "model": {
+              "id": "gemini-3.1-flash-lite-preview",
+              "mode": "live"
+            }
+          },
+          "prompt": "{\n  \"name\": \"governance-ledger\",\n  \"version\": \"1.2.0\",\n  \"private\": true,\n  \"packageManager\": \"npm@11.3.0\",\n  \"scripts\": {\n    \"build\": \"tsc -p tsconfig.json\",\n    \"lint\": \"eslint .\",\n    \"test\": \"vitest run\"\n  },\n  \"dependencies\": {\n    \"zod\": \"4.3.6\",\n    \"kleur\": \"4.1.5\"\n  },\n  \"devDependencies\": {\n    \"eslint\": \"9.24.0\",\n    \"typescript\": \"5.8.3\",\n    \"vitest\": \"3.1.0\"\n  }\n}\n",
+          "metadata": {
+            "attempt": 1,
+            "fixturePath": "evals/fixtures/manifests/steady-package.json",
+            "httpStatus": 200
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Steady Package stays composed without inventing chaos",
+          "vars": {
+            "fixturePath": "evals/fixtures/manifests/steady-package.json",
+            "expectedMode": "live",
+            "requiredSignals": [],
+            "signalSummary": "A comparatively boring npm manifest with pinned dependencies, no postinstall hook, and no obvious governance drama. The reading should stay serious and amusing without fabricating catastrophic instability.\n"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/contract.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/writing-constraints.cjs"
+            },
+            {
+              "type": "javascript",
+              "value": "file://evals/assertions/signal-coverage.cjs"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+            },
+            {
+              "type": "llm-rubric",
+              "threshold": 0.85,
+              "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+            }
+          ],
+          "options": {
+            "provider": {
+              "modelName": "gemini-3.1-flash-lite-preview",
+              "config": {
+                "basePath": ".",
+                "vertexai": false
+              },
+              "isVertexMode": false,
+              "mcpClient": null,
+              "initializationPromise": null,
+              "loadedFunctionCallbacks": {},
+              "label": ""
+            }
+          },
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/steady-package.json",
+          "expectedMode": "live",
+          "requiredSignals": [],
+          "signalSummary": "A comparatively boring npm manifest with pinned dependencies, no postinstall hook, and no obvious governance drama. The reading should stay serious and amusing without fabricating catastrophic instability.\n"
+        },
+        "metadata": {
+          "attempt": 1,
+          "fixturePath": "evals/fixtures/manifests/steady-package.json",
+          "httpStatus": 200,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 8,
+      "failures": 0,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "total": 0,
+        "numRequests": 8,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0
+        },
+        "assertions": {
+          "total": 13887,
+          "prompt": 6304,
+          "completion": 640,
+          "cached": 6943,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0
+          }
+        }
+      },
+      "durationMs": 133471,
+      "evaluationDurationMs": 133471
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "Semver in Retrograde reading evals",
+    "prompts": [
+      "Evaluate the reading endpoint against fixture {{fixturePath}}."
+    ],
+    "providers": [
+      {
+        "id": "file://evals/providers/reading-provider.mjs",
+        "config": {
+          "baseUrl": "http://127.0.0.1:3000",
+          "route": "/api/reading",
+          "liveRetries": 2,
+          "retryDelayMs": 1500
+        }
+      }
+    ],
+    "tests": [
+      {
+        "description": "Boardroom Next keeps postinstall and peer tension in view",
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/boardroom-next.json",
+          "expectedMode": "live",
+          "requiredSignals": [
+            "postinstall",
+            "peerDependencies"
+          ],
+          "signalSummary": "A Next.js workspace manifest with pnpm, one peer dependency, a postinstall hook, and mild governance vibes. The reading should surface peer tension and the project's secret second life after install.\n"
+        }
+      },
+      {
+        "description": "Creative Vite calls out latest tags and wildcard looseness",
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/creative-vite.json",
+          "expectedMode": "live",
+          "requiredSignals": [
+            "latest",
+            "wildcard"
+          ],
+          "signalSummary": "A fast-moving Vite frontend with latest tags and wildcard ranges in core dependencies. The reading should notice commitment issues and open-ended dependency posture.\n"
+        }
+      },
+      {
+        "description": "Haunted Library notices overrides and lifecycle weirdness",
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/haunted-library.json",
+          "expectedMode": "live",
+          "requiredSignals": [
+            "overrides",
+            "postinstall",
+            "peerDependencies"
+          ],
+          "signalSummary": "A library-style manifest with overrides, resolutions, multiple peer dependencies, and a postinstall script. The reading should frame this as exception-driven governance with unspoken expectations.\n"
+        }
+      },
+      {
+        "description": "Steady Package stays composed without inventing chaos",
+        "vars": {
+          "fixturePath": "evals/fixtures/manifests/steady-package.json",
+          "expectedMode": "live",
+          "requiredSignals": [],
+          "signalSummary": "A comparatively boring npm manifest with pinned dependencies, no postinstall hook, and no obvious governance drama. The reading should stay serious and amusing without fabricating catastrophic instability.\n"
+        }
+      }
+    ],
+    "scenarios": [],
+    "env": {},
+    "defaultTest": {
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "file://evals/assertions/contract.cjs"
+        },
+        {
+          "type": "javascript",
+          "value": "file://evals/assertions/writing-constraints.cjs"
+        },
+        {
+          "type": "javascript",
+          "value": "file://evals/assertions/signal-coverage.cjs"
+        },
+        {
+          "type": "llm-rubric",
+          "threshold": 0.85,
+          "value": "Evaluate the \"reading\" section of this dependency aura response.\n\nPass only if the writing is:\n- polished, dead-serious, and vaguely B2B\n- funny through sincerity rather than random absurdity\n- concise and punchy across fields\n- free of practical engineering advice\n\nFail if the voice becomes generic, meme-heavy, or obviously instructional.\n"
+        },
+        {
+          "type": "llm-rubric",
+          "threshold": 0.85,
+          "value": "Evaluate whether this dependency aura response stays grounded in the fixture.\n\nExpected signals for this manifest:\n{{signalSummary}}\n\nPass only if the response:\n- clearly reflects the fixture's salient dependency signals\n- aligns with the structured JSON analysis instead of contradicting it\n- does not invent unsupported facts, counts, or concrete remediation steps\n"
+        }
+      ],
+      "vars": {},
+      "options": {
+        "provider": {
+          "modelName": "gemini-3.1-flash-lite-preview",
+          "config": {
+            "basePath": ".",
+            "vertexai": false
+          },
+          "isVertexMode": false,
+          "mcpClient": null,
+          "initializationPromise": null,
+          "loadedFunctionCallbacks": {},
+          "label": ""
+        }
+      },
+      "metadata": {}
+    },
+    "outputPath": [],
+    "extensions": [],
+    "metadata": {},
+    "evaluateOptions": {
+      "maxConcurrency": 1
+    }
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.121.3",
+    "nodeVersion": "v24.2.0",
+    "platform": "darwin",
+    "arch": "x64",
+    "exportedAt": "2026-04-08T04:29:33.650Z",
+    "evaluationCreatedAt": "2026-04-08T00:18:21.104Z"
+  }
+}

@@ -1,0 +1,93 @@
+description: Semver in Retrograde reading evals
+
+prompts:
+  - "Evaluate the reading endpoint against fixture {{fixturePath}}."
+
+providers:
+  - id: file://evals/providers/reading-provider.mjs
+    config:
+      baseUrl: http://127.0.0.1:3000
+      route: /api/reading
+      liveRetries: 2
+      retryDelayMs: 1500
+
+evaluateOptions:
+  maxConcurrency: 1
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://evals/assertions/contract.cjs
+    - type: javascript
+      value: file://evals/assertions/writing-constraints.cjs
+    - type: javascript
+      value: file://evals/assertions/signal-coverage.cjs
+    - type: llm-rubric
+      threshold: 0.85
+      value: |
+        Evaluate the "reading" section of this dependency aura response.
+
+        Pass only if the writing is:
+        - polished, dead-serious, and vaguely B2B
+        - funny through sincerity rather than random absurdity
+        - concise and punchy across fields
+        - free of practical engineering advice
+
+        Fail if the voice becomes generic, meme-heavy, or obviously instructional.
+    - type: llm-rubric
+      threshold: 0.85
+      value: |
+        Evaluate whether this dependency aura response stays grounded in the fixture.
+
+        Expected signals for this manifest:
+        {{signalSummary}}
+
+        Pass only if the response:
+        - clearly reflects the fixture's salient dependency signals
+        - aligns with the structured JSON analysis instead of contradicting it
+        - does not invent unsupported facts, counts, or concrete remediation steps
+
+tests:
+  - description: Boardroom Next keeps postinstall and peer tension in view
+    vars:
+      fixturePath: evals/fixtures/manifests/boardroom-next.json
+      expectedMode: live
+      requiredSignals:
+        - postinstall
+        - peerDependencies
+      signalSummary: >
+        A Next.js workspace manifest with pnpm, one peer dependency, a postinstall
+        hook, and mild governance vibes. The reading should surface peer tension and
+        the project's secret second life after install.
+  - description: Creative Vite calls out latest tags and wildcard looseness
+    vars:
+      fixturePath: evals/fixtures/manifests/creative-vite.json
+      expectedMode: live
+      requiredSignals:
+        - latest
+        - wildcard
+      signalSummary: >
+        A fast-moving Vite frontend with latest tags and wildcard ranges in core
+        dependencies. The reading should notice commitment issues and open-ended
+        dependency posture.
+  - description: Haunted Library notices overrides and lifecycle weirdness
+    vars:
+      fixturePath: evals/fixtures/manifests/haunted-library.json
+      expectedMode: live
+      requiredSignals:
+        - overrides
+        - postinstall
+        - peerDependencies
+      signalSummary: >
+        A library-style manifest with overrides, resolutions, multiple peer
+        dependencies, and a postinstall script. The reading should frame this as
+        exception-driven governance with unspoken expectations.
+  - description: Steady Package stays composed without inventing chaos
+    vars:
+      fixturePath: evals/fixtures/manifests/steady-package.json
+      expectedMode: live
+      requiredSignals: []
+      signalSummary: >
+        A comparatively boring npm manifest with pinned dependencies, no postinstall
+        hook, and no obvious governance drama. The reading should stay serious and
+        amusing without fabricating catastrophic instability.
