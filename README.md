@@ -63,6 +63,11 @@ npm run eval:export -- eval-qw8-2026-04-08T00:18:21
 
 If you omit the eval id, the exporter uses the most recent run from `~/.promptfoo/evalLastWritten`.
 
+Each exported report also gets a clean alias route, so you can link either:
+
+- `/evals/eval-qw8-2026-04-08T00-18-21.html`
+- `/evals/eval-qw8-2026-04-08T00:18:21`
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
