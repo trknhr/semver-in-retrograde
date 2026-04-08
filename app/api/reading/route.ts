@@ -30,6 +30,82 @@ import {
 
 export const runtime = "nodejs";
 
+type GeminiFailureDetails = {
+  message: string;
+  serviceStatus?: string;
+  status?: number;
+};
+
+function parseServiceErrorMessage(message: string) {
+  try {
+    const parsed = JSON.parse(message) as {
+      error?: {
+        code?: unknown;
+        message?: unknown;
+        status?: unknown;
+      };
+    };
+
+    if (!parsed.error || typeof parsed.error !== "object") {
+      return null;
+    }
+
+    return {
+      message:
+        typeof parsed.error.message === "string" ? parsed.error.message : message,
+      serviceStatus:
+        typeof parsed.error.status === "string" ? parsed.error.status : undefined,
+      status:
+        typeof parsed.error.code === "number" ? parsed.error.code : undefined,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function extractGeminiFailureDetails(error: unknown): GeminiFailureDetails {
+  const baseMessage =
+    error instanceof Error ? error.message : "Unknown Gemini failure.";
+  const parsedServiceError = parseServiceErrorMessage(baseMessage);
+  const errorWithStatus =
+    error && typeof error === "object" ? (error as { status?: unknown }) : null;
+
+  return {
+    message: parsedServiceError?.message ?? baseMessage,
+    serviceStatus: parsedServiceError?.serviceStatus,
+    status:
+      typeof errorWithStatus?.status === "number"
+        ? errorWithStatus.status
+        : parsedServiceError?.status,
+  };
+}
+
+function buildFallbackWarning(error: unknown): string {
+  const { message, serviceStatus, status } = extractGeminiFailureDetails(error);
+  const normalizedMessage = message.toLowerCase();
+
+  if (status === 503 || serviceStatus === "UNAVAILABLE") {
+    return "Gemini is temporarily unavailable because the model is under high demand, so the narrative copy fell back to the local contingency generator.";
+  }
+
+  if (status === 429) {
+    return "Gemini is rate-limiting requests right now, so the narrative copy fell back to the local contingency generator.";
+  }
+
+  if (normalizedMessage.includes("empty response body")) {
+    return "Gemini returned an empty response, so the narrative copy fell back to the local contingency generator.";
+  }
+
+  if (
+    normalizedMessage.includes("json") ||
+    normalizedMessage.includes("validation")
+  ) {
+    return "Gemini returned an invalid structured response, so the narrative copy fell back to the local contingency generator.";
+  }
+
+  return "Gemini could not generate narrative copy, so the response fell back to the local contingency generator.";
+}
+
 function toLuckyCommand(
   packageManager: string | null,
   scores: AuraScores,
@@ -227,15 +303,18 @@ async function generateReading(
       warnings: [],
     };
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Unknown Gemini failure.";
+    const failureDetails = extractGeminiFailureDetails(error);
+
+    console.error("Gemini reading generation failed.", {
+      message: failureDetails.message,
+      serviceStatus: failureDetails.serviceStatus,
+      status: failureDetails.status,
+    });
 
     return {
       reading: buildFallbackReading(features, scores),
       mode: "fallback",
-      warnings: [
-        `Gemini response validation failed, so the narrative copy fell back to the local contingency generator. ${message}`,
-      ],
+      warnings: [buildFallbackWarning(error)],
     };
   }
 }

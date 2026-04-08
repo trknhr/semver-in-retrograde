@@ -20,6 +20,41 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Eval Setup
+
+This repo includes a minimal `promptfoo` evaluation harness for the reading endpoint.
+It is intentionally small but split into two layers:
+
+- deterministic assertions for response shape, writing constraints, and fixture-specific signal coverage
+- `llm-rubric` checks for tone and grounding
+
+### Requirements
+
+- `GEMINI_API_KEY` in `.env.local`
+- a local dev server started by the eval runner
+
+### Run
+
+```bash
+npm run eval:reading
+```
+
+The eval runner boots the Next.js app locally, hits `POST /api/reading`, and grades the resulting JSON response against the fixtures in `evals/fixtures/manifests/`.
+It also loads `.env.local` into `promptfoo` itself so the `llm-rubric` grader can use the same Gemini credentials as the app under test.
+By default, the judge model is `google:gemini-3.1-flash-lite-preview`.
+
+If you want a different judge model, pass it through to promptfoo:
+
+```bash
+npm run eval:reading -- --grader openai:gpt-5-mini
+```
+
+If you want a cheaper Gemini judge, this also works:
+
+```bash
+npm run eval:reading -- --grader google:gemini-2.5-flash-lite
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
