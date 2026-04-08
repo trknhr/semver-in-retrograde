@@ -55,6 +55,14 @@ If you want a cheaper Gemini judge, this also works:
 npm run eval:reading -- --grader google:gemini-2.5-flash-lite
 ```
 
+To publish a saved eval run as static artifacts under `public/evals/`, export it like this:
+
+```bash
+npm run eval:export -- eval-qw8-2026-04-08T00:18:21
+```
+
+If you omit the eval id, the exporter uses the most recent run from `~/.promptfoo/evalLastWritten`.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
