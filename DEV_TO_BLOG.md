@@ -6,26 +6,17 @@ tags: devchallenge, 418challenge, showdev
 
 *This is a submission for the [DEV April Fools Challenge](https://dev.to/challenges/aprilfools-2026)*
 
-## What I Built
+## What I built
 
-I built **Semver in Retrograde**, an enterprise-grade dependency aura analyzer for emotionally unavailable npm projects.
+I built Semver in Retrograde, a dependency astrology app for npm projects dressed up like enterprise software.
 
-You paste a `package.json`, click **Analyze my dependency aura**, and get a deeply serious executive report about your project's inner life:
+You paste a `package.json`, click "Analyze my dependency aura", and get a straight-faced executive report about the project's emotional state. It gives you Aura Stability, Chaos Index, Peer Dependency Tension, Mercury Status, the dependency Big 3, a prophecy, a lucky command, and a share card that looks ready for an internal quarterly review.
 
-- **Aura Stability**
-- **Chaos Index**
-- **Peer Dependency Tension**
-- **Mercury Status**
-- your dependency **Big 3**
-- a **prophecy**
-- a **lucky command**
-- a screenshot-ready **share card**
+That contrast is the joke. The interface looks like a serious dashboard. The output is dependency mysticism delivered in the tone of an operations meeting.
 
-It is completely unnecessary, mildly judgmental, and presented with the confidence of a boardroom dashboard that should not exist.
+I also added one feature that makes me disproportionately happy: if you paste something that looks like `requirements.txt` or a `Gemfile`, the app returns **418 I'm a teapot**. Wrong ecosystem, wrong beverage.
 
-The joke is that it looks like an expensive internal platform, but what it actually delivers is dependency astrology.
-
-There is also one very important standards-compliance feature: if you paste something that looks like `requirements.txt` or a `Gemfile`, the app responds with **418 I'm a teapot**.
+![alt text](image.png)
 
 ## Demo
 
@@ -33,13 +24,12 @@ Live demo: [https://semver-in-retrograde.vercel.app/](https://semver-in-retrogra
 
 Repo: [trknhr/semver-in-retrograde](https://github.com/trknhr/semver-in-retrograde)
 
-Suggested demo flow:
+This is the demo flow I used:
 
-1. Paste a chaotic `package.json`
-2. Click **Analyze my dependency aura**
-3. Show the KPI cards and the Big 3
-4. Scroll to the prophecy and lucky command
-5. End on the share card
+1. Click **Analyze my dependency aura**
+2. Show the KPI cards and the Big 3
+3. Scroll to the prophecy and lucky command
+4. End on the share card
 
 ## Code
 
@@ -47,29 +37,25 @@ The code is here:
 
 - [GitHub Repository](https://github.com/trknhr/semver-in-retrograde)
 
-The app is structured around a simple split:
+The app has a clean split. Local code parses and scores the manifest. Gemini writes the executive reading. So the same manifest always produces the same numbers, while the model handles the polished nonsense.
 
-- **deterministic local logic** for parsing and scoring the manifest
-- **Gemini-generated language** for the executive reading
+## How I built it
 
-That means the same manifest always gets the same numeric scores, while the AI handles the polished nonsense.
+I used:
 
-## How I Built It
+- Next.js
+- TypeScript
+- Tailwind CSS
+- server-side Gemini API
+- Zod
 
-I built this with:
-
-- **Next.js**
-- **TypeScript**
-- **Tailwind CSS**
-- **server-side Gemini API**
-- **`@google/genai`**
-- **Zod**
-
-The architecture is intentionally overbuilt for something profoundly unhelpful.
+The architecture is more serious than the premise. That felt appropriate.
 
 ### 1. Deterministic manifest analysis
 
-The app parses `package.json` and extracts signals like:
+The first step is completely local.
+
+The app parses `package.json`, flattens the dependency sections, inspects the scripts block, and turns the manifest into a feature set. It looks at things like:
 
 - dependency counts
 - `peerDependencies`
@@ -80,20 +66,19 @@ The app parses `package.json` and extracts signals like:
 - package manager hints
 - framework / test / build tool fingerprints
 
-Those features are then converted into scores such as:
+Those features feed a weighted scoring model. I wanted the joke to start from real manifest behavior, not from a model improvising a vibe.
 
-- **Aura Stability**
-- **Chaos Index**
-- **Peer Dependency Tension**
-- **Boundary Issues**
-- **Trust Issues**
-- **Mercury in Nodegrade**
+Pinned versions help Aura Stability. Wildcards, `latest`, extra scripts, and override-heavy manifests drag it down. Chaos Index climbs when the project has loose version ranges, lifecycle scripts, `postinstall`, suspicious script names, or workspace sprawl. Peer Dependency Tension rises when the package asks other people to satisfy more of its needs. Boundary Issues is really a score for governance by exception, so `overrides`, `resolutions`, and workspace hints push it upward. Trust Issues gets worse when the manifest is private, carries a `postinstall`, or leans on suspicious scripts and `latest` tags. Mercury Status comes from lifecycle-script severity, especially `pre*`, `post*`, and `postinstall`.
+
+So yes, the result is silly. But it is silly in a deterministic way.
+
+Those signals show up in the product as Aura Stability, Chaos Index, Peer Dependency Tension, Boundary Issues, Trust Issues, and Mercury Status.
 
 All of this is computed locally so the core behavior stays deterministic.
 
 ### 2. Gemini for the narrative layer
 
-I used Gemini on the server to generate the parts that needed tone rather than correctness:
+I used Gemini on the server for the parts that needed tone rather than math:
 
 - executive summary
 - sun / moon / rising interpretations
@@ -102,38 +87,33 @@ I used Gemini on the server to generate the parts that needed tone rather than c
 - lucky command
 - share caption
 
-The app asks Gemini for structured JSON and validates the result with Zod before rendering it.
+Gemini does not decide the scores. It gets the extracted features and the computed numbers, then turns them into a dead-serious reading.
 
-That let me keep the product funny without letting the model invent the actual score logic.
+The app asks for structured JSON and validates the result with Zod before rendering anything. That kept the product funny without handing core logic to the model.
 
-### 3. The UI direction
+### 3. UI direction
 
-Instead of making it look like a horoscope app, I made it look like a corporate audit dashboard.
-
-That contrast is the whole bit.
+I did not want this to look like a horoscope app. I wanted it to look like a corporate audit dashboard that had developed a spiritual problem.
 
 The design goal was:
 
-**"This should look like a compliance product that got trapped in a spiritual crisis."**
+"This should look like a compliance product that got trapped in a spiritual crisis."
 
-### 4. The April Fools detail I care about most
+### 4. My favorite April Fools detail
 
 If the input looks like Python or Ruby dependency files, the app returns **418**.
 
-That part is useless, correct, and emotionally satisfying.
+That part is useless, correct, and deeply satisfying.
 
 ### 5. Eval, because the joke works better if the nonsense is measured
 
-I did not want the AI layer to be "hope and vibes."
+I did not want the AI layer to run on hope.
 
-So I added a small `promptfoo` harness around the reading endpoint and treated the joke like a real structured-output feature.
+So I added a small `promptfoo` harness around the reading endpoint and treated it like a real structured-output feature.
 
-The eval setup is split into two layers:
+The eval setup has two layers. The first is deterministic and checks response contract, writing constraints, and fixture-specific signal coverage. The second uses LLM-as-a-judge rubrics for tone and grounding.
 
-- **deterministic assertions** for response contract, writing constraints, and fixture-specific signal coverage
-- **LLM-as-a-judge rubrics** for tone and grounding
-
-The deterministic checks verify things like:
+The deterministic checks cover things like:
 
 - the endpoint returns the full expected JSON shape
 - the response stays in `live` mode for the eval fixtures
@@ -141,23 +121,23 @@ The deterministic checks verify things like:
 - the `luckyCommand` still looks like a shell command
 - the response actually reflects the manifest signals it was supposed to notice
 
-Then I layered on judge-based checks for the harder-to-measure parts:
+Then I added judge-based checks for the harder-to-measure parts:
 
 - does this still sound polished, dead-serious, and vaguely B2B?
 - is it funny through sincerity rather than random nonsense?
 - does it stay grounded in the fixture instead of inventing facts?
 
-That gave me a better contract for the product:
+That gave me a cleaner contract for the product:
 
 - local code owns the real scoring logic
 - Gemini owns the tone
 - evals make sure those boundaries do not blur
 
-The runner hits the local Next.js app over HTTP, so the evaluation path matches the real product path instead of testing a fake helper in isolation.
+The runner hits the local Next.js app over HTTP, so the eval path matches the real product path instead of a helper in isolation.
 
 ### 6. Eval results
 
-The evaluation run I kept for this project was:
+The saved run I kept for the project was:
 
 - `eval-qw8-2026-04-08T00:18:21`
 - public report: [semver-in-retrograde.vercel.app/evals/eval-qw8-2026-04-08T00:18:21](https://semver-in-retrograde.vercel.app/evals/eval-qw8-2026-04-08T00:18:21)
@@ -186,20 +166,14 @@ The fixtures cover four different dependency personalities:
 - a haunted library with overrides, resolutions, and lifecycle weirdness
 - a relatively boring steady package that should not be over-dramatized
 
-That last case was especially important. A joke product is easy to make noisy. It is harder to make it consistently funny without forcing chaos where the input does not justify it.
+That last case mattered. A joke product can always get louder. The harder part is keeping it funny without inventing drama the manifest did not earn.
 
-## Prize Category
+## Prize category
 
 I am submitting this for **Best Google AI Usage**.
 
-Google AI is central to the project, not just attached to it:
+Google AI is central to the project. Gemini runs the narrative layer on the server, returns structured JSON instead of free-form prose, gets validated before display, and sits behind evals that check both hard constraints and tone. The product only works because of that split between deterministic scoring and AI-generated corporate mysticism.
 
-- Gemini is used server-side for the executive reading layer
-- the app uses structured JSON output instead of free-form text dumping
-- the model output is validated before display
-- the narrative layer is evaluated with both deterministic checks and LLM-as-a-judge rubrics
-- the product experience is designed around the contrast between deterministic scoring and AI-generated corporate mysticism
-
-In other words, the AI is doing exactly what it should do here. It's not critical logic, but high-quality, highly reusable nonsense.
+That is the role I wanted the model to play. It does not own the critical logic. It owns the polished nonsense.
 
 If your JavaScript project has unresolved dependency feelings, Semver in Retrograde is ready to misinterpret them at enterprise scale.
